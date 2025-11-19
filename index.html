@@ -659,5 +659,40 @@
   document.getElementById("year").textContent = new Date().getFullYear();
 </script>
 
+<!-- Sticky Call Button (Mobile Only) -->
+<a href="tel:+18179087241" 
+   style="
+     position: fixed;
+     bottom: 16px;
+     right: 16px;
+     background: #f59e0b;
+     color: #111827;
+     padding: 12px 20px;
+     border-radius: 999px;
+     font-weight: 700;
+     font-size: 15px;
+     box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+     z-index: 9999;
+     display: none;
+   "
+   class="mobile-call-btn">
+   Call Now — Free Estimate
+</a>
+
+<script>
+  // Show button only on mobile screens
+  function handleCallButton() {
+    const btn = document.querySelector('.mobile-call-btn');
+    if (window.innerWidth <= 760) {
+      btn.style.display = 'block';
+    } else {
+      btn.style.display = 'none';
+    }
+  }
+  handleCallButton();
+  window.addEventListener('resize', handleCallButton);
+</script>
+
+  
 </body>
 </html>
