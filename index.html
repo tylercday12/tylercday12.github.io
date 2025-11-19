@@ -31,14 +31,26 @@
       color: inherit;
     }
 
-header {
-  background: url("{{file: /mnt/data/istockphoto-485768306-612x612.jpg}}") no-repeat center center/cover;
-  color: #fff;
-  padding: 24px 16px 60px;
-  position: relative;
-}
-
+    /* Header / Hero */
+    header {
+      position: relative;
+      color: #fff;
+      padding: 24px 16px 60px;
+      background: url("garage-hero.jpg") no-repeat center center/cover;
     }
+    /* Dark overlay on the image so text is readable */
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.55);
+      z-index: 0;
+    }
+    header > .container {
+      position: relative;
+      z-index: 1;
+    }
+
     .container {
       max-width: 1100px;
       margin: 0 auto;
@@ -85,8 +97,8 @@ header {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: rgba(15, 23, 42, 0.8);
-      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.6);
       border-radius: 999px;
       padding: 4px 12px;
       font-size: 13px;
@@ -124,7 +136,7 @@ header {
     .btn-ghost {
       background: transparent;
       border-radius: 999px;
-      border: 1px solid rgba(156, 163, 175, 0.7);
+      border: 1px solid rgba(209, 213, 219, 0.9);
       color: #e5e7eb;
       padding: 9px 16px;
       font-size: 14px;
@@ -132,14 +144,15 @@ header {
     .hero-note {
       margin-top: 10px;
       font-size: 13px;
-      color: #9ca3af;
+      color: #d1d5db;
+      max-width: 420px;
     }
     .hero-card {
-      background: rgba(15, 23, 42, 0.9);
+      background: rgba(15, 23, 42, 0.95);
       border-radius: var(--radius);
       padding: 18px 18px 16px;
-      border: 1px solid rgba(148, 163, 184, 0.4);
-      box-shadow: 0 20px 45px rgba(0,0,0,0.45);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      box-shadow: 0 20px 45px rgba(0,0,0,0.55);
       font-size: 14px;
     }
     .hero-card h2 {
@@ -165,7 +178,7 @@ header {
     .hero-card-footer {
       font-size: 12px;
       color: #9ca3af;
-      border-top: 1px dashed rgba(148, 163, 184, 0.6);
+      border-top: 1px dashed rgba(148, 163, 184, 0.7);
       padding-top: 6px;
       margin-top: 6px;
     }
@@ -438,61 +451,61 @@ header {
     </div>
   </section>
 
- <section id="pricing">
-  <div class="container">
-    <div class="eyebrow">Pricing</div>
-    <h2 class="section-title">Simple, Flat-Rate Garage Cleanout Pricing</h2>
-    <p class="section-sub">
-      Straightforward pricing with no hidden fees. Every cleanout includes loading, hauling, and a basic sweep-up.
-      Final price may vary slightly depending on dump fees or extremely heavy items.
-    </p>
+  <!-- Pricing -->
+  <section id="pricing">
+    <div class="container">
+      <div class="eyebrow">Pricing</div>
+      <h2 class="section-title">Simple, Flat-Rate Garage Cleanout Pricing</h2>
+      <p class="section-sub">
+        Straightforward pricing with no hidden fees. Every cleanout includes loading, hauling, and a basic sweep-up.
+        Final price may vary slightly depending on dump fees or extremely heavy items.
+      </p>
 
-    <div class="card-grid">
-      <div class="card">
-        <h3>Small Garage</h3>
-        <div class="price-tag">$250</div>
-        <div class="price-note">Great for lightly-filled 1-car garages.</div>
-        <ul>
-          <li>Full cleanout included</li>
-          <li>Loading + Hauling</li>
-          <li>Basic sweep-up</li>
-        </ul>
-      </div>
+      <div class="card-grid">
+        <div class="card">
+          <h3>Small Garage</h3>
+          <div class="price-tag">$250</div>
+          <div class="price-note">Great for lightly-filled 1-car garages.</div>
+          <ul>
+            <li>Full cleanout included</li>
+            <li>Loading + hauling</li>
+            <li>Basic sweep-up</li>
+          </ul>
+        </div>
 
-      <div class="card">
-        <h3>Medium Garage</h3>
-        <div class="price-tag">$300</div>
-        <div class="price-note">Standard 1-car or tight 2-car garages.</div>
-        <ul>
-          <li>Full cleanout included</li>
-          <li>Loading + Hauling</li>
-          <li>Basic sweep-up</li>
-        </ul>
-      </div>
+        <div class="card">
+          <h3>Medium Garage</h3>
+          <div class="price-tag">$300</div>
+          <div class="price-note">Standard 1-car or tight 2-car garages.</div>
+          <ul>
+            <li>Full cleanout included</li>
+            <li>Loading + hauling</li>
+            <li>Basic sweep-up</li>
+          </ul>
+        </div>
 
-      <div class="card">
-        <h3>Large Garage</h3>
-        <div class="price-tag">$350</div>
-        <div class="price-note">Most 2-car garages or heavily-filled spaces.</div>
-        <ul>
-          <li>Full cleanout included</li>
-          <li>Loading + Hauling</li>
-          <li>Basic sweep-up</li>
-        </ul>
-      </div>
+        <div class="card">
+          <h3>Large Garage</h3>
+          <div class="price-tag">$350</div>
+          <div class="price-note">Most 2-car garages or heavily-filled spaces.</div>
+          <ul>
+            <li>Full cleanout included</li>
+            <li>Loading + hauling</li>
+            <li>Basic sweep-up</li>
+          </ul>
+        </div>
 
-      <div class="card">
-        <h3>Custom Quotes</h3>
-        <p>
-          Have a unique situation? Extra junk? Not sure which size you fall under?
-          Text photos of your garage or junk pile and get a no-pressure estimate.
-        </p>
-        <a href="sms:+18179087241" class="btn-full">📸 Text Photos for Estimate</a>
+        <div class="card">
+          <h3>Custom Quotes</h3>
+          <p>
+            Have a unique situation? Extra junk? Not sure which size you fall under?
+            Text photos of your garage or junk pile and get a no-pressure estimate.
+          </p>
+          <a href="sms:+18179087241" class="btn-full">📸 Text Photos for Estimate</a>
+        </div>
       </div>
     </div>
-  </div>
-</section>
-
+  </section>
 
   <!-- How it works -->
   <section id="how">
@@ -577,7 +590,9 @@ header {
           </div>
           <div class="contact-row">
             <div class="contact-label">Fastest way</div>
-            <div>Text a few photos of your garage or junk pile for a quick estimate.</div>
+            <div>
+              Text a few photos of your garage or junk pile for a quick estimate.
+            </div>
           </div>
           <a class="btn-full" href="tel:+18179087241">Tap to Call Now</a>
         </div>
@@ -586,7 +601,7 @@ header {
           <div class="contact-row">
             <div class="contact-label">Email</div>
             <div class="big-contact">
-              <a href="mailto:info@dayproservices.com">info@dayproservices.com</a>
+              <a href="mailto:tylercday12@gmail.com">tylercday12@gmail.com</a>
             </div>
           </div>
           <div class="contact-row">
@@ -595,7 +610,7 @@ header {
               A short description, photos if possible, and your city. We’ll reply with next steps and a rough estimate.
             </div>
           </div>
-          <a class="btn-full" href="mailto:info@dayproservices.com">Email for an Estimate</a>
+          <a class="btn-full" href="mailto:tylercday12@gmail.com">Email for an Estimate</a>
         </div>
       </div>
     </div>
