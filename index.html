@@ -185,12 +185,12 @@
       margin-top: 6px;
     }
 
-    /* Hero map card */
+    /* Hero service area / radius card */
     .hero-map-card {
       margin-top: 12px;
       background: #ffffff;
       border-radius: var(--radius);
-      padding: 10px 10px 12px;
+      padding: 10px 12px 12px;
       border: 1px solid #e5e7eb;
       box-shadow: 0 10px 25px rgba(15,23,42,0.18);
       font-size: 12px;
@@ -198,13 +198,38 @@
     }
     .hero-map-card h3 {
       font-size: 14px;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
-    .hero-map-card iframe {
-      width: 100%;
-      height: 180px;
-      border: 0;
-      border-radius: 10px;
+    .hero-map-card p {
+      margin-bottom: 8px;
+    }
+    .radius-visual {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .radius-circle {
+      width: 56px;
+      height: 56px;
+      border-radius: 999px;
+      border: 2px solid #f59e0b;
+      background: #fef3c7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .radius-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: #b91c1c;
+    }
+    .radius-labels {
+      font-size: 12px;
+      line-height: 1.35;
+    }
+    .radius-labels strong {
+      font-size: 13px;
     }
 
     /* Sections */
@@ -445,11 +470,16 @@
         <div class="hero-map-card">
           <h3>Service Area</h3>
           <p>Based in Cleburne, serving nearby DFW (not past Dallas).</p>
-          <iframe
-            src="https://www.google.com/maps?q=Cleburne,TX&z=9&output=embed"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade">
-          </iframe>
+          <div class="radius-visual">
+            <div class="radius-circle">
+              <div class="radius-dot"></div>
+            </div>
+            <div class="radius-labels">
+              <strong>Cleburne is home base</strong><br>
+              Joshua • Burleson • Keene • Alvarado<br>
+              Plus nearby DFW neighborhoods within our radius.
+            </div>
+          </div>
         </div>
       </div>
     </div>
