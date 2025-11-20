@@ -68,6 +68,8 @@
       letter-spacing: 0.08em;
       text-transform: uppercase;
       font-size: 18px;
+      display: flex;
+      align-items: center;
     }
     .top-contact {
       text-align: right;
@@ -181,6 +183,28 @@
       border-top: 1px dashed rgba(148, 163, 184, 0.7);
       padding-top: 6px;
       margin-top: 6px;
+    }
+
+    /* Hero map card */
+    .hero-map-card {
+      margin-top: 12px;
+      background: #ffffff;
+      border-radius: var(--radius);
+      padding: 10px 10px 12px;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 10px 25px rgba(15,23,42,0.18);
+      font-size: 12px;
+      color: #111827;
+    }
+    .hero-map-card h3 {
+      font-size: 14px;
+      margin-bottom: 6px;
+    }
+    .hero-map-card iframe {
+      width: 100%;
+      height: 180px;
+      border: 0;
+      border-radius: 10px;
     }
 
     /* Sections */
@@ -352,8 +376,8 @@
   <div class="container">
     <div class="top-bar">
       <div class="logo">
-  <img src="daypro-logo.png" alt="Day Pro Services Logo" style="height:180px; width:auto;">
-</div>
+        <img src="daypro-logo.png" alt="Day Pro Services Logo" style="height:180px; width:auto;">
+      </div>
       <div class="top-contact">
         <span>Call or Text Anytime</span>
         <a href="tel:+18179087241">(817) 908-7241</a>
@@ -388,23 +412,22 @@
       </div>
 
       <div>
-
-      <div style="
-  display:flex;
-  align-items:center;
-  gap:8px;
-  background:#f59e0b;
-  padding:6px 14px;
-  border-radius:999px;
-  font-size:13px;
-  font-weight:700;
-  margin-bottom:12px;
-  color:#111827;
-  box-shadow:0 2px 6px rgba(0,0,0,0.2);
-">
-  <span style="font-size:16px;">🏠</span>
-  Locally Owned & Operated
-</div>
+        <div style="
+          display:flex;
+          align-items:center;
+          gap:8px;
+          background:#f59e0b;
+          padding:6px 14px;
+          border-radius:999px;
+          font-size:13px;
+          font-weight:700;
+          margin-bottom:12px;
+          color:#111827;
+          box-shadow:0 2px 6px rgba(0,0,0,0.2);
+        ">
+          <span style="font-size:16px;">🏠</span>
+          Locally Owned & Operated
+        </div>
        
         <div class="hero-card">
           <h2>What We Can Help With</h2>
@@ -413,12 +436,20 @@
             <li><span class="check">✔</span> Junk & clutter removal</li>
             <li><span class="check">✔</span> Move-out and rental cleanups</li>
             <li><span class="check">✔</span> Full-property & estate cleanouts</li>
-
-            
           </ul>
           <div class="hero-card-footer">
             Text a few photos of your garage or junk pile to <strong>(817) 908-7241</strong> for a quick ballpark estimate.
           </div>
+        </div>
+
+        <div class="hero-map-card">
+          <h3>Service Area</h3>
+          <p>Based in Cleburne, serving nearby DFW (not past Dallas).</p>
+          <iframe
+            src="https://www.google.com/maps?q=Cleburne,TX&z=9&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
         </div>
       </div>
     </div>
@@ -477,91 +508,90 @@
   </section>
 
   <!-- Pricing -->
- <section id="pricing">
-  <div class="container">
-    <div class="eyebrow">Pricing</div>
-    <h2 class="section-title">Simple, Flat-Rate Garage Cleanout Pricing</h2>
+  <section id="pricing">
+    <div class="container">
+      <div class="eyebrow">Pricing</div>
+      <h2 class="section-title">Simple, Flat-Rate Garage Cleanout Pricing</h2>
 
-    <!-- Guarantee badge -->
-    <div style="
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      background:#fff;
-      padding:8px 14px;
-      margin:8px 8px 10px 0;
-      border-radius:999px;
-      font-size:14px;
-      font-weight:700;
-      border:1px solid #e5e7eb;
-      box-shadow:0 4px 12px rgba(0,0,0,0.06);
-      color:#111827;
-    ">
-      <span style="font-size:16px;">✔</span>
-      100% Upfront Pricing — No Surprises
+      <!-- Guarantee badge -->
+      <div style="
+        display:inline-flex;
+        align-items:center;
+        gap:10px;
+        background:#fff;
+        padding:8px 14px;
+        margin:8px 8px 10px 0;
+        border-radius:999px;
+        font-size:14px;
+        font-weight:700;
+        border:1px solid #e5e7eb;
+        box-shadow:0 4px 12px rgba(0,0,0,0.06);
+        color:#111827;
+      ">
+        <span style="font-size:16px;">✔</span>
+        100% Upfront Pricing — No Surprises
+      </div>
+
+      <p class="section-sub">
+        Straightforward pricing with no hidden fees. Every cleanout includes loading, hauling, and a basic sweep-up.
+        Final price may vary slightly depending on dump fees or extremely heavy items. Largest load size limited to a 16' box truck.
+      </p>
+
+      <p style="margin-top: 6px; font-size: 14px; font-weight: 600; color: #b45309;">
+        🔥 Cash discounts available — ask when booking!
+      </p>
+
+      <div class="card-grid">
+        <div class="card">
+          <h3>Small Load</h3>
+          <div class="price-tag">
+            $300 <span style="font-size:14px; color:#6b7280;">est.</span>
+          </div>
+          <div class="price-note">Great for lightly-filled 1-car garages and small spaces.</div>
+          <ul>
+            <li>Full cleanout included</li>
+            <li>Loading + hauling</li>
+            <li>Basic sweep-up and basic organization</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Medium Load</h3>
+          <div class="price-tag">
+            $350 <span style="font-size:14px; color:#6b7280;">est.</span>
+          </div>
+          <div class="price-note">Standard 1-car or medium-filled spaces.</div>
+          <ul>
+            <li>Full cleanout included</li>
+            <li>Loading + hauling</li>
+            <li>Basic sweep-up and basic organization</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Large Load</h3>
+          <div class="price-tag">
+            $450 <span style="font-size:14px; color:#6b7280;">est.</span>
+          </div>
+          <div class="price-note">Most 2-car garages or heavily-filled spaces.</div>
+          <ul>
+            <li>Full cleanout included</li>
+            <li>Loading + hauling</li>
+            <li>Basic sweep-up and basic organization</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Custom Quotes</h3>
+          <p>
+            Have a unique situation? Extra junk? Not sure which size you fall under?
+            Text photos of your garage or junk pile and get a no-pressure estimate.
+          </p>
+          <a href="sms:+18179087241" class="btn-full">Text Photos for Estimate</a>
+        </div>
+      </div>
     </div>
-
-    <p class="section-sub">
-      Straightforward pricing with no hidden fees. Every cleanout includes loading, hauling, and a basic sweep-up.
-      Final price may vary slightly depending on dump fees or extremely heavy items. Largest load size limited to a 16' box truck.
-    </p>
-
-    <p style="margin-top: 6px; font-size: 14px; font-weight: 600; color: #b45309;">
-      🔥 Cash discounts available — ask when booking!
-    </p>
-
-    <div class="card-grid">
-      <div class="card">
-        <h3>Small Load</h3>
-        <div class="price-tag">
-          $300 <span style="font-size:14px; color:#6b7280;">est.</span>
-        </div>
-        <div class="price-note">Great for lightly-filled 1-car garages and small spaces.</div>
-        <ul>
-          <li>Full cleanout included</li>
-          <li>Loading + hauling</li>
-          <li>Basic sweep-up and basic organization</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>Medium Load</h3>
-        <div class="price-tag">
-          $350 <span style="font-size:14px; color:#6b7280;">est.</span>
-        </div>
-        <div class="price-note">Standard 1-car or medium-filled spaces.</div>
-        <ul>
-          <li>Full cleanout included</li>
-          <li>Loading + hauling</li>
-          <li>Basic sweep-up and basic organization</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>Large Load</h3>
-        <div class="price-tag">
-          $450 <span style="font-size:14px; color:#6b7280;">est.</span>
-        </div>
-        <div class="price-note">Most 2-car garages or heavily-filled spaces.</div>
-        <ul>
-          <li>Full cleanout included</li>
-          <li>Loading + hauling</li>
-          <li>Basic sweep-up and basic organization</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>Custom Quotes</h3>
-        <p>
-          Have a unique situation? Extra junk? Not sure which size you fall under?
-          Text photos of your garage or junk pile and get a no-pressure estimate.
-        </p>
-        <a href="sms:+18179087241" class="btn-full">Text Photos for Estimate</a>
-      </div>
-    </div>
-  </div>
-</section>
-
+  </section>
 
   <!-- How it works -->
   <section id="how">
@@ -716,6 +746,5 @@
   window.addEventListener('resize', handleCallButton);
 </script>
 
-  
 </body>
 </html>
