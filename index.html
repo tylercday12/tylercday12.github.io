@@ -38,7 +38,6 @@
       padding: 24px 16px 60px;
       background: url("garage-hero-new.png") no-repeat center center/cover;
     }
-    /* Dark overlay */
     header::before {
       content: "";
       position: absolute;
@@ -87,13 +86,13 @@
       align-items: center;
     }
     .hero h1 {
-      font-size: clamp(28px, 4vw, 38px);
-      margin-bottom: 12px;
+      font-size: clamp(30px, 4.4vw, 40px);
+      margin-bottom: 10px;
     }
     .hero p {
       font-size: 16px;
       color: #e5e7eb;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
     .hero-badge {
       display: inline-flex;
@@ -113,42 +112,64 @@
       border-radius: 999px;
       background: #22c55e;
     }
+
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
       margin-top: 8px;
     }
-    .btn-primary {
+
+    /* Bigger, main CTA button */
+    .btn-main {
       background: var(--accent);
       color: #111827;
+      padding: 14px 24px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.45);
+    }
+    .btn-main:hover {
+      filter: brightness(1.05);
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: rgba(249, 250, 251, 0.08);
+      color: #f9fafb;
       padding: 10px 18px;
       border-radius: 999px;
-      font-weight: 700;
-      font-size: 15px;
-      border: none;
+      font-weight: 600;
+      font-size: 14px;
+      border: 1px solid rgba(209, 213, 219, 0.8);
       cursor: pointer;
       display: inline-flex;
       align-items: center;
       gap: 6px;
     }
     .btn-primary:hover {
-      filter: brightness(1.05);
+      background: rgba(249, 250, 251, 0.16);
     }
-    .btn-ghost {
-      background: transparent;
-      border-radius: 999px;
-      border: 1px solid rgba(209, 213, 219, 0.9);
-      color: #e5e7eb;
-      padding: 9px 16px;
-      font-size: 14px;
-    }
+
     .hero-note {
       margin-top: 10px;
       font-size: 13px;
       color: #d1d5db;
-      max-width: 420px;
+      max-width: 460px;
     }
+    .hero-note-cta {
+      margin-top: 6px;
+      font-size: 13px;
+      color: #fbbf24;
+      font-weight: 600;
+    }
+
     .hero-card {
       background: rgba(15, 23, 42, 0.95);
       border-radius: var(--radius);
@@ -374,7 +395,6 @@
           color:#e5e7eb;
         ">
           <span>Follow us:</span>
-          <!-- Facebook Icon (non-functional for now) -->
           <div style="
             width:28px;
             height:28px;
@@ -399,24 +419,29 @@
           <span class="dot"></span>
           <span>Local cleanout & hauling • Cleburne • Joshua • Burleson • DFW</span>
         </div>
-        <h1>Garage Cleanouts, Junk Removal & Hauling — Done the Right Way.</h1>
+        <h1>Clear Out Your Garage in One Day — Without Lifting a Finger.</h1>
         <p>
-          Day pro services helps you clear out garages, sheds, rooms, and whole properties —
-          fast, affordable, and local. You point, we clean, load, and haul it away.
+          Dayproservices handles garage cleanouts, junk removal, and small hauling — fast, affordable, and local.
+          You point at what needs to go. We clean it out, load it up, and haul it away.
         </p>
         <div class="hero-actions">
-          <a class="btn-primary" href="tel:+18179087241">
-            📞 Call Now to Schedule
+          <!-- BIG MAIN CTA -->
+          <a class="btn-main" href="sms:+18179087241">
+            📸 Text Us a Photo for a Fast Free Quote
           </a>
-          <a class="btn-primary" href="#contact">
-            Get a Free Estimate
+          <!-- Secondary CTAs -->
+          <a class="btn-primary" href="tel:+18179087241">
+            Call Now to Schedule
           </a>
           <a class="btn-primary" href="#pricing">
             View Pricing
           </a>
         </div>
         <div class="hero-note">
-          Serving Cleburne, Joshua, Burleson and surrounding DFW. No hidden fees, straight-up pricing.
+          Serving Cleburne, Joshua, Burleson and surrounding DFW. No hidden fees — straight-up, flat-rate pricing.
+        </div>
+        <div class="hero-note-cta">
+          Best way: text a few photos of your garage or junk pile to (817) 908-7241 for a fast, free estimate.
         </div>
       </div>
 
@@ -447,7 +472,7 @@
             <li><span class="check">✔</span> Full-property & estate cleanouts</li>
           </ul>
           <div class="hero-card-footer">
-            Text a few photos of your garage or junk pile to <strong>(817) 908-7241</strong> for a quick ballpark estimate.
+            Same-day or next-day availability on most jobs. Text photos to <strong>(817) 908-7241</strong> for a quick ballpark estimate.
           </div>
         </div>
       </div>
@@ -463,7 +488,7 @@
       <h2 class="section-title">Cleanouts & Hauling Made Simple</h2>
       <p class="section-sub">
         Whether it’s a packed garage, old furniture, boxes, or general junk that’s been sitting for years,
-        Day pro services makes it easy to get your space back.
+        Dayproservices makes it easy to get your space back.
       </p>
 
       <div class="card-grid">
@@ -512,7 +537,6 @@
       <div class="eyebrow">Pricing</div>
       <h2 class="section-title">Simple, Flat-Rate Garage Cleanout Pricing</h2>
 
-      <!-- Guarantee badge -->
       <div style="
         display:inline-flex;
         align-items:center;
@@ -532,7 +556,7 @@
       </div>
 
       <p class="section-sub">
-        Straight forward pricing with no hidden fees. Every cleanout includes loading, hauling, and a basic sweep-up.
+        Straightforward pricing with no hidden fees. Every cleanout includes loading, hauling, and a basic sweep-up.
         Final price may vary slightly depending on dump fees or extremely heavy items. Largest load size limited to a 16' box truck.
       </p>
 
@@ -586,7 +610,7 @@
             Have a unique situation? Extra junk? Not sure which size you fall under?
             Text photos of your garage or junk pile and get a no-pressure estimate.
           </p>
-          <a href="sms:+18179087241" class="btn-full">Text Photos for Estimate</a>
+          <a href="sms:+18179087241" class="btn-full">📸 Text Photos for Estimate</a>
         </div>
       </div>
     </div>
@@ -605,7 +629,7 @@
         <ul class="steps">
           <li>
             <div>
-              <strong>Reach out.</strong> Call or text <strong>(817) 908-7241</strong> with a short description or photos of the space.
+              <strong>Reach out.</strong> Call, text, or email with a short description or photos of the space.
             </div>
           </li>
           <li>
@@ -662,7 +686,7 @@
       <div class="eyebrow">Contact</div>
       <h2 class="section-title">Ready to Clear Some Space?</h2>
       <p class="section-sub">
-        Call or text to get started. You can also email with photos and a quick description of what you need cleaned out.
+        Call, text, or email to get started. You can also send photos with a quick description of what you need cleaned out.
       </p>
 
       <div class="contact-grid">
@@ -679,7 +703,7 @@
               Text a few photos of your garage or junk pile for a quick estimate.
             </div>
           </div>
-          <a class="btn-full" href="tel:+18179087241">Tap to Call Now</a>
+          <a class="btn-full" href="sms:+18179087241">📸 Text Photos for Fast Quote</a>
         </div>
 
         <div class="contact-box">
@@ -707,7 +731,6 @@
 </footer>
 
 <script>
-  // Set current year in footer automatically
   document.getElementById("year").textContent = new Date().getFullYear();
 </script>
 
@@ -732,7 +755,6 @@
 </a>
 
 <script>
-  // Show button only on mobile screens
   function handleCallButton() {
     const btn = document.querySelector('.mobile-call-btn');
     if (window.innerWidth <= 760) {
@@ -747,5 +769,6 @@
 
 </body>
 </html>
+
 
 
