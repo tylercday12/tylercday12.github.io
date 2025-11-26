@@ -400,6 +400,92 @@
       transform: translateY(-1px);
     }
 
+    /* Gallery / Slider */
+    .gallery-section {
+      background:#e5e7eb;
+    }
+    .gallery-wrapper {
+      margin-top: 18px;
+      background:#0b1120;
+      border-radius: var(--radius);
+      padding: 14px 14px 18px;
+      box-shadow:0 12px 30px rgba(15,23,42,0.35);
+      border:1px solid #1f2937;
+    }
+    .gallery-inner {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius);
+      background:#020617;
+    }
+    .gallery-slide {
+      display:none;
+      width:100%;
+    }
+    .gallery-slide.active {
+      display:block;
+    }
+    .gallery-slide img {
+      width:100%;
+      display:block;
+      max-height: 420px;
+      object-fit: cover;
+    }
+    .gallery-caption {
+      font-size: 13px;
+      color:#e5e7eb;
+      padding:8px 10px 4px;
+      background:#020617;
+      border-top:1px solid #111827;
+    }
+
+    .gallery-nav-btn {
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      width:32px;
+      height:32px;
+      border-radius:999px;
+      border:none;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:rgba(15,23,42,0.85);
+      color:#e5e7eb;
+      cursor:pointer;
+      font-size:18px;
+      transition: background 0.15s ease, transform 0.15s ease;
+    }
+    .gallery-nav-btn:hover {
+      background:rgba(15,23,42,1);
+      transform:translateY(-50%) scale(1.05);
+    }
+    .gallery-nav-btn.prev {
+      left:10px;
+    }
+    .gallery-nav-btn.next {
+      right:10px;
+    }
+
+    .gallery-dots {
+      display:flex;
+      justify-content:center;
+      gap:6px;
+      margin-top:10px;
+    }
+    .gallery-dot {
+      width:8px;
+      height:8px;
+      border-radius:999px;
+      background:#4b5563;
+      cursor:pointer;
+      transition:transform 0.15s ease, background 0.15s ease;
+    }
+    .gallery-dot.active {
+      background:#fbbf24;
+      transform:scale(1.2);
+    }
+
     /* Footer */
     footer {
       background: #020617;
@@ -741,6 +827,62 @@
     </div>
   </section>
 
+  <!-- GALLERY / JOB PHOTOS -->
+  <section id="gallery" class="gallery-section">
+    <div class="container">
+      <div class="eyebrow">Results</div>
+      <h2 class="section-title">Before & After Style Job Photos</h2>
+      <p class="section-sub">
+        Here are a few real garages and spaces we’ve helped clear out. Your project can look like this too —
+        just text us your pictures and we’ll get you a fast quote.
+      </p>
+
+      <div class="gallery-wrapper">
+        <div class="gallery-inner">
+          <!-- Slide 1 -->
+          <div class="gallery-slide active" data-index="0">
+            <!-- TODO: replace these image file names with your real images -->
+            <img src="gallery-1.jpg" alt="Cleaned up two-car garage with organized totes along the wall" />
+            <div class="gallery-caption">
+              After: Two-car garage cleared, totes stacked neatly on one wall and floor space opened up.
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="gallery-slide" data-index="1">
+            <img src="gallery-2.jpg" alt="Garage before cleanout with clutter and boxes scattered around" />
+            <div class="gallery-caption">
+              Before: Boxes, random clutter, and old furniture piled up — we sorted, loaded, and hauled it all away.
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="gallery-slide" data-index="2">
+            <img src="gallery-3.jpg" alt="Truck loaded with junk and items from a property cleanout" />
+            <div class="gallery-caption">
+              Load-out: Truck packed and ready for the dump — you don’t lift a thing.
+            </div>
+          </div>
+
+          <!-- Nav buttons -->
+          <button class="gallery-nav-btn prev" type="button" aria-label="Previous photo">
+            ◀
+          </button>
+          <button class="gallery-nav-btn next" type="button" aria-label="Next photo">
+            ▶
+          </button>
+        </div>
+
+        <!-- Dots -->
+        <div class="gallery-dots">
+          <div class="gallery-dot active" data-index="0"></div>
+          <div class="gallery-dot" data-index="1"></div>
+          <div class="gallery-dot" data-index="2"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- How it works -->
   <section id="how">
     <div class="container">
@@ -865,6 +1007,74 @@
 <script>
   // Set current year in footer automatically
   document.getElementById("year").textContent = new Date().getFullYear();
+
+  // Simple gallery slider logic
+  (function () {
+    const slides = document.querySelectorAll('.gallery-slide');
+    const dots = document.querySelectorAll('.gallery-dot');
+    const prevBtn = document.querySelector('.gallery-nav-btn.prev');
+    const nextBtn = document.querySelector('.gallery-nav-btn.next');
+
+    if (!slides.length) return;
+
+    let current = 0;
+    let autoTimer = null;
+
+    function showSlide(index) {
+      current = (index + slides.length) % slides.length;
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === current);
+      });
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === current);
+      });
+    }
+
+    function nextSlide() {
+      showSlide(current + 1);
+    }
+
+    function prevSlide() {
+      showSlide(current - 1);
+    }
+
+    function startAuto() {
+      stopAuto();
+      autoTimer = setInterval(nextSlide, 6000);
+    }
+
+    function stopAuto() {
+      if (autoTimer) {
+        clearInterval(autoTimer);
+        autoTimer = null;
+      }
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        nextSlide();
+        startAuto();
+      });
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        prevSlide();
+        startAuto();
+      });
+    }
+
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        const idx = Number(dot.getAttribute('data-index')) || 0;
+        showSlide(idx);
+        startAuto();
+      });
+    });
+
+    // start autoplay
+    startAuto();
+  })();
 </script>
 
 <!-- Sticky Call Button (Mobile Only) -->
