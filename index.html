@@ -35,20 +35,22 @@
     header {
       position: relative;
       color: #fff;
-      padding: 24px 16px 60px;
+      padding: 24px 16px 70px;
       background: url("garage-hero-new.png") no-repeat center center/cover;
+      overflow: hidden;
     }
-    /* Dark overlay */
     header::before {
       content: "";
       position: absolute;
       inset: 0;
-      background: rgba(0, 0, 0, 0.55);
+      background: radial-gradient(circle at top left, rgba(245,158,11,0.15), transparent 50%),
+                  rgba(0,0,0,0.65);
       z-index: 0;
     }
     header > .container {
       position: relative;
       z-index: 1;
+      animation: fadeInUp 0.9s ease-out;
     }
 
     .container {
@@ -64,10 +66,6 @@
       margin-bottom: 32px;
     }
     .logo {
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      font-size: 18px;
       display: flex;
       align-items: center;
     }
@@ -80,21 +78,29 @@
       font-weight: 600;
       color: #fbbf24;
     }
+
+    .social-box {
+      display:flex;
+      align-items:center;
+      gap:8px;
+      font-size:14px;
+      font-weight:600;
+      color:#e5e7eb;
+    }
+
     .hero {
       display: grid;
       grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
       gap: 32px;
       align-items: center;
     }
-    .hero h1 {
-      font-size: clamp(28px, 4vw, 38px);
-      margin-bottom: 12px;
+    .hero-left {
+      animation: fadeInUp 0.9s ease-out;
     }
-    .hero p {
-      font-size: 16px;
-      color: #e5e7eb;
-      margin-bottom: 18px;
+    .hero-right {
+      animation: floatCard 5s ease-in-out infinite alternate;
     }
+
     .hero-badge {
       display: inline-flex;
       align-items: center;
@@ -113,11 +119,45 @@
       border-radius: 999px;
       background: #22c55e;
     }
+    .hero h1 {
+      font-size: clamp(30px, 4.4vw, 42px);
+      margin-bottom: 10px;
+    }
+    .hero-highlight {
+      color: #fde68a;
+      font-weight: 600;
+    }
+    .hero p {
+      font-size: 16px;
+      color: #e5e7eb;
+      margin-bottom: 16px;
+      max-width: 520px;
+    }
+
+    .hero-quick-points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .hero-chip {
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:4px 10px;
+      border-radius:999px;
+      font-size:12px;
+      background:rgba(15,23,42,0.9);
+      border:1px solid rgba(148,163,184,0.6);
+      color:#e5e7eb;
+    }
+
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
       margin-top: 8px;
+      align-items: center;
     }
     .btn-primary {
       background: var(--accent);
@@ -130,11 +170,33 @@
       cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
+      transition: transform 0.14s ease, box-shadow 0.14s ease, filter 0.14s ease;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.35);
     }
     .btn-primary:hover {
       filter: brightness(1.05);
+      transform: translateY(-1px) scale(1.02);
+      box-shadow: 0 14px 30px rgba(0,0,0,0.45);
     }
+
+    /* Special CTA button with pulse */
+    .btn-cta-pulse {
+      position: relative;
+      overflow: hidden;
+      animation: pulse 1.8s ease-in-out infinite;
+    }
+    .btn-cta-pulse::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 999px;
+      box-shadow: 0 0 0 0 rgba(245,158,11,0.36);
+      opacity: 0;
+      animation: ring 1.8s ease-out infinite;
+      pointer-events: none;
+    }
+
     .btn-ghost {
       background: transparent;
       border-radius: 999px;
@@ -142,15 +204,29 @@
       color: #e5e7eb;
       padding: 9px 16px;
       font-size: 14px;
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      transition: background 0.15s ease, border-color 0.15s ease;
     }
+    .btn-ghost:hover {
+      background: rgba(15,23,42,0.9);
+      border-color:#fbbf24;
+    }
+
     .hero-note {
       margin-top: 10px;
       font-size: 13px;
       color: #d1d5db;
-      max-width: 420px;
+      max-width: 460px;
     }
+    .hero-note span {
+      color:#fde68a;
+      font-weight:600;
+    }
+
     .hero-card {
-      background: rgba(15, 23, 42, 0.95);
+      background: rgba(15, 23, 42, 0.96);
       border-radius: var(--radius);
       padding: 18px 18px 16px;
       border: 1px solid rgba(148, 163, 184, 0.6);
@@ -164,6 +240,7 @@
     .hero-card ul {
       list-style: none;
       margin: 10px 0 12px;
+      padding:0;
     }
     .hero-card li {
       display: flex;
@@ -316,6 +393,11 @@
       font-weight: 600;
       font-size: 14px;
       text-align: center;
+      transition: background 0.15s ease, transform 0.15s ease;
+    }
+    .btn-full:hover {
+      background:#020617;
+      transform: translateY(-1px);
     }
 
     /* Footer */
@@ -325,6 +407,41 @@
       padding: 18px 16px 22px;
       font-size: 12px;
       text-align: center;
+    }
+
+    /* Animations */
+    @keyframes pulse {
+      0% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-1px) scale(1.03); }
+      100% { transform: translateY(0) scale(1); }
+    }
+    @keyframes ring {
+      0% {
+        opacity: 0.55;
+        box-shadow: 0 0 0 0 rgba(245,158,11,0.35);
+      }
+      100% {
+        opacity: 0;
+        box-shadow: 0 0 0 16px rgba(245,158,11,0);
+      }
+    }
+    @keyframes fadeInUp {
+      from {
+        opacity:0;
+        transform: translateY(12px);
+      }
+      to {
+        opacity:1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes floatCard {
+      0% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(-6px);
+      }
     }
 
     /* Responsive */
@@ -341,6 +458,9 @@
       }
       .hero {
         grid-template-columns: 1fr;
+      }
+      .hero-right {
+        animation: none;
       }
       .contact-grid {
         grid-template-columns: 1fr;
@@ -365,16 +485,8 @@
         </div>
 
         <!-- Social media -->
-        <div class="social-box" style="
-          display:flex;
-          align-items:center;
-          gap:8px;
-          font-size:14px;
-          font-weight:600;
-          color:#e5e7eb;
-        ">
+        <div class="social-box">
           <span>Follow us:</span>
-          <!-- Facebook Icon (clickable SVG) -->
           <a
             href="https://www.facebook.com/profile.php?id=61584112049218"
             target="_blank"
@@ -411,33 +523,48 @@
     </div>
 
     <div class="hero">
-      <div>
+      <div class="hero-left">
         <div class="hero-badge">
           <span class="dot"></span>
           <span>Local cleanout & hauling • Cleburne • Joshua • Burleson • DFW</span>
         </div>
-        <h1>Garage Cleanouts, Junk Removal & Hauling — Done the Right Way.</h1>
+        <h1>
+          Send Us a Few Pictures.<br />
+          <span class="hero-highlight">Get a Fast, Free Quote.</span>
+        </h1>
         <p>
-          Day pro services helps you clear out garages, sheds, rooms, and whole properties —
-          fast, affordable, and local. You point, we clean, load, and haul it away.
+          Day Pro Services helps you clear out garages, sheds, rooms, and whole properties —
+          fast, affordable, and local. You text us photos, we send a quote, then we handle the heavy lifting.
         </p>
+
+        <div class="hero-quick-points">
+          <div class="hero-chip">✅ Upfront pricing only</div>
+          <div class="hero-chip">🚚 We load & haul it</div>
+          <div class="hero-chip">🏠 Cleburne-based, DFW area</div>
+        </div>
+
         <div class="hero-actions">
-          <a class="btn-primary" href="tel:+18179087241">
-            📞 Call Now to Schedule
+          <!-- MAIN CTA: text pics for fast quote -->
+          <a
+            class="btn-primary btn-cta-pulse"
+            href="sms:+18179087241?&body=Hi%2C%20I%27d%20like%20a%20quote.%20Sending%20pictures%20of%20my%20garage%2Fjunk%20now."
+          >
+            📸 Text Us Pictures for a Fast, Free Quote
           </a>
-          <a class="btn-primary" href="#contact">
-            Get a Free Estimate
-          </a>
-          <a class="btn-primary" href="#pricing">
-            View Pricing
+
+          <!-- secondary: call now -->
+          <a class="btn-ghost" href="tel:+18179087241">
+            📞 Or tap to call us
           </a>
         </div>
+
         <div class="hero-note">
-          Serving Cleburne, Joshua, Burleson and surrounding DFW. No hidden fees, straight-up pricing.
+          Most quotes sent in under <span>15 minutes</span> during normal hours.  
+          Serving Cleburne, Joshua, Burleson and surrounding DFW.
         </div>
       </div>
 
-      <div>
+      <div class="hero-right">
         <div style="
           display:flex;
           align-items:center;
@@ -464,7 +591,8 @@
             <li><span class="check">✔</span> Full-property & estate cleanouts</li>
           </ul>
           <div class="hero-card-footer">
-            Text a few photos of your garage or junk pile to <strong>(817) 908-7241</strong> for a quick ballpark estimate.
+            Text a few photos of your garage or junk pile to <strong>(817) 908-7241</strong> 
+            for a quick ballpark estimate before we roll out.
           </div>
         </div>
       </div>
@@ -480,7 +608,7 @@
       <h2 class="section-title">Cleanouts & Hauling Made Simple</h2>
       <p class="section-sub">
         Whether it’s a packed garage, old furniture, boxes, or general junk that’s been sitting for years,
-        Day pro services makes it easy to get your space back.
+        Day Pro Services makes it easy to get your space back.
       </p>
 
       <div class="card-grid">
@@ -529,7 +657,6 @@
       <div class="eyebrow">Pricing</div>
       <h2 class="section-title">Simple, Flat-Rate Garage Cleanout Pricing</h2>
 
-      <!-- Guarantee badge -->
       <div style="
         display:inline-flex;
         align-items:center;
@@ -603,7 +730,12 @@
             Have a unique situation? Extra junk? Not sure which size you fall under?
             Text photos of your garage or junk pile and get a no-pressure estimate.
           </p>
-          <a href="sms:+18179087241" class="btn-full">Text Photos for Estimate</a>
+          <a
+            href="sms:+18179087241?&body=Hi%2C%20I%27d%20like%20a%20quote.%20Sending%20pictures%20now."
+            class="btn-full"
+          >
+            📸 Text Photos for an Estimate
+          </a>
         </div>
       </div>
     </div>
@@ -615,20 +747,20 @@
       <div class="eyebrow">How it works</div>
       <h2 class="section-title">Simple 3-Step Process</h2>
       <p class="section-sub">
-        No complicated scheduling apps, no headaches. Just reach out, approve the price, and we handle the rest.
+        No complicated apps, no headaches. Just reach out, approve the price, and we handle the rest.
       </p>
 
       <div class="card">
         <ul class="steps">
           <li>
             <div>
-              <strong>Reach out.</strong> Call or text <strong>(817) 908-7241</strong> with a short description or photos of the space.
+              <strong>Send pictures.</strong> Text photos of your garage or junk pile to 
+              <strong>(817) 908-7241</strong>.
             </div>
           </li>
           <li>
             <div>
-              <strong>Get a quote.</strong> We’ll give you a ballpark over text or come by for a quick look
-              and give a firm price before starting.
+              <strong>Get a quote.</strong> We’ll reply with a fast, upfront quote and schedule options.
             </div>
           </li>
           <li>
@@ -648,7 +780,7 @@
       <div class="eyebrow">Service Area</div>
       <h2 class="section-title">Based in Cleburne, Serving DFW</h2>
       <p class="section-sub">
-        Dayproservices is locally based in Cleburne and serves nearby cities and the greater DFW area.
+        Day Pro Services is locally based in Cleburne and serves nearby cities and the greater DFW area.
         If you’re not sure you’re in range, just text and ask.
       </p>
 
@@ -696,7 +828,12 @@
               Text a few photos of your garage or junk pile for a quick estimate.
             </div>
           </div>
-          <a class="btn-full" href="tel:+18179087241">Tap to Call Now</a>
+          <a
+            class="btn-full"
+            href="sms:+18179087241?&body=Hi%2C%20I%27m%20texting%20pictures%20for%20a%20garage%2Fjunk%20cleanout%20quote."
+          >
+            📸 Text Pictures for a Quote
+          </a>
         </div>
 
         <div class="contact-box">
@@ -712,7 +849,9 @@
               A short description, photos if possible, and your city. We’ll reply with next steps and a rough estimate.
             </div>
           </div>
-          <a class="btn-full" href="mailto:info@dayproservice.com">Email for an Estimate</a>
+          <a class="btn-full" href="mailto:info@dayproservice.com">
+            ✉️ Email for an Estimate
+          </a>
         </div>
       </div>
     </div>
