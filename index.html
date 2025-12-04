@@ -498,26 +498,92 @@
       100% { transform: translateY(-6px); }
     }
 
-    /* Responsive */
+    /* MOBILE LAYOUT TUNING */
     @media (max-width: 800px) {
+      body {
+        font-size: 15px;
+      }
+
+      .container {
+        padding: 0 14px;
+      }
+
       .top-bar {
         flex-direction: column;
         align-items: flex-start;
+        gap: 10px;
       }
-      .top-contact {
-        text-align: left;
+
+      .logo img {
+        height: 130px;
       }
+
       header {
-        padding-bottom: 40px;
+        padding: 18px 12px 32px;
       }
+
       .hero {
         grid-template-columns: 1fr;
+        gap: 22px;
       }
+
+      .hero-left,
+      .hero-right {
+        text-align: left;
+      }
+
       .hero-right {
         animation: none;
       }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn-primary,
+      .btn-ghost,
+      .btn-full {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .hero-note {
+        max-width: 100%;
+      }
+
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+
       .contact-grid {
         grid-template-columns: 1fr;
+      }
+
+      .gallery-section .gallery-wrapper {
+        margin-top: 14px;
+      }
+
+      .mobile-call-btn {
+        bottom: 12px !important;
+        right: 12px !important;
+      }
+    }
+
+    /* EXTRA SMALL PHONES */
+    @media (max-width: 480px) {
+      .promo-bar {
+        font-size: 11px;
+        line-height: 1.4;
+        padding: 6px 10px;
+      }
+
+      .hero h1 {
+        font-size: 24px;
+      }
+
+      .section-title {
+        font-size: 20px;
       }
     }
   </style>
@@ -604,7 +670,6 @@
         </div>
 
         <div class="hero-actions">
-          <!-- MAIN CTA: text pics for fast quote -->
           <a
             class="btn-primary btn-cta-pulse"
             href="sms:+18179087241?&body=Hi%2C%20I%27m%20a%20first-time%20client%20and%20I%27d%20like%20a%20quote%20(with%20the%20$25%20OFF).%20Sending%20pictures%20of%20my%20garage%2Fjunk%20now."
@@ -612,7 +677,6 @@
             📸 Text Photos for a Fast Quote + $25 OFF
           </a>
 
-          <!-- secondary: call now -->
           <a class="btn-ghost" href="tel:+18179087241">
             📞 Call Now — Ask About First-Time Pricing
           </a>
