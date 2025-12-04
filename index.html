@@ -4,7 +4,20 @@
   <meta charset="UTF-8" />
   <title>Dayproservices | Garage Cleanouts & Hauling in DFW</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Day Pro Services offers fast, affordable garage cleanouts, junk removal, and hauling in Cleburne, Joshua, Burleson, and surrounding DFW — plus $25 OFF your first garage cleanout as a new client." />
+  <meta
+    name="description"
+    content="Day Pro Services offers fast, affordable garage cleanouts, junk removal, and hauling in Cleburne, Joshua, Burleson, and surrounding DFW — plus $25 OFF your first garage cleanout as a new client."
+  />
+
+  <!-- Google tag (gtag.js) - REPLACE AW-XXXXXXX WITH YOUR ID -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-XXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-XXXXXXX'); // <-- replace with your Google Ads ID
+  </script>
+
   <style>
     :root {
       --primary: #111827;
@@ -381,7 +394,7 @@
       margin-top: 2px;
     }
 
-    /* Contact section */
+    /* Contact / grids */
     .contact-grid {
       display: grid;
       grid-template-columns: minmax(0, 2fr) minmax(0, 2fr);
@@ -892,6 +905,106 @@
     </div>
   </section>
 
+  <!-- FAST QUOTE SECTION (FORM + TEXT/EMAIL BUTTONS) -->
+  <section id="quote" style="padding: 38px 16px;">
+    <div class="container">
+      <div class="eyebrow">Fast Quote</div>
+      <h2 class="section-title">Send Us Your Info for a Fast Quote</h2>
+      <p class="section-sub">
+        You can text us photos, email us, or use this quick form.
+        First-time clients still get <strong>$25 OFF</strong>.
+      </p>
+
+      <div class="contact-grid">
+        <!-- FORM SIDE -->
+        <div class="contact-box">
+          <form id="quote-form" action="mailto:info@dayproservice.com" method="POST" enctype="text/plain">
+            <div class="contact-row">
+              <div class="contact-label">Name</div>
+              <input
+                type="text"
+                name="Name"
+                placeholder="Your name"
+                style="width:100%;padding:8px 10px;border-radius:10px;border:1px solid #d1d5db;font-size:14px;"
+              />
+            </div>
+
+            <div class="contact-row">
+              <div class="contact-label">Phone</div>
+              <input
+                type="tel"
+                name="Phone"
+                placeholder="Best number to reach you"
+                required
+                style="width:100%;padding:8px 10px;border-radius:10px;border:1px solid #d1d5db;font-size:14px;"
+              />
+            </div>
+
+            <div class="contact-row">
+              <div class="contact-label">City</div>
+              <input
+                type="text"
+                name="City"
+                placeholder="Cleburne, Joshua, Burleson, etc."
+                style="width:100%;padding:8px 10px;border-radius:10px;border:1px solid #d1d5db;font-size:14px;"
+              />
+            </div>
+
+            <div class="contact-row">
+              <div class="contact-label">What do you need cleaned out?</div>
+              <textarea
+                name="Details"
+                placeholder="Short description of your garage or junk pile"
+                rows="3"
+                style="width:100%;padding:8px 10px;border-radius:10px;border:1px solid #d1d5db;font-size:14px;resize:vertical;"
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn-full" style="width:100%;margin-top:12px;">
+              ✅ Send Details for a Fast Quote
+            </button>
+
+            <p style="font-size:11px;color:#6b7280;margin-top:6px;">
+              Submitting this form sends your info to our email so we can reply with a quote.
+            </p>
+          </form>
+        </div>
+
+        <!-- TEXT/EMAIL BUTTON SIDE -->
+        <div class="contact-box">
+          <div class="contact-row">
+            <div class="contact-label">Prefer to text?</div>
+            <a
+              id="cta-text-button"
+              class="btn-full"
+              href="sms:+18179087241?&body=Hi%2C%20I%27d%20like%20a%20garage%2Fjunk%20cleanout%20quote.%20I%27ll%20send%20pictures%20now."
+              style="width:100%;margin-bottom:10px;"
+            >
+              📸 Text Photos for a Fast Quote
+            </a>
+          </div>
+
+          <div class="contact-row">
+            <div class="contact-label">Prefer email?</div>
+            <a
+              id="cta-email-button"
+              class="btn-full"
+              href="mailto:info@dayproservice.com?subject=Garage%20cleanout%20quote&body=Hi%2C%20I%27d%20like%20a%20quote.%20I%27ll%20attach%20pictures%20of%20my%20garage."
+              style="width:100%;margin-bottom:10px;"
+            >
+              ✉️ Email Us for a Quote
+            </a>
+          </div>
+
+          <p style="font-size:12px;color:#6b7280;margin-top:4px;">
+            Most quotes are sent in under 15 minutes during normal hours.
+            First-time clients get <strong>$25 OFF</strong>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- How it works -->
   <section id="how">
     <div class="container">
@@ -1054,6 +1167,47 @@
   }
   handleCallButton();
   window.addEventListener('resize', handleCallButton);
+</script>
+
+<!-- GOOGLE ADS CONVERSION EVENTS -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // FORM SUBMIT -> Lead
+    var quoteForm = document.getElementById('quote-form');
+    if (quoteForm) {
+      quoteForm.addEventListener('submit', function () {
+        if (typeof gtag === 'function') {
+          gtag('event', 'conversion', {
+            'send_to': 'AW-XXXXXXX/FORM_LEAD_ID' // replace with your form conversion send_to
+          });
+        }
+      });
+    }
+
+    // CLICK-TO-TEXT -> Lead
+    var textButtons = document.querySelectorAll('a[href^="sms:+18179087241"]');
+    textButtons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        if (typeof gtag === 'function') {
+          gtag('event', 'conversion', {
+            'send_to': 'AW-XXXXXXX/SMS_LEAD_ID' // replace with your SMS conversion send_to
+          });
+        }
+      });
+    });
+
+    // CLICK-TO-EMAIL -> Lead
+    var emailButtons = document.querySelectorAll('a[href^="mailto:info@dayproservice.com"]');
+    emailButtons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        if (typeof gtag === 'function') {
+          gtag('event', 'conversion', {
+            'send_to': 'AW-XXXXXXX/EMAIL_LEAD_ID' // replace with your email conversion send_to
+          });
+        }
+      });
+    });
+  });
 </script>
 
 </body>
