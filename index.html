@@ -9,14 +9,597 @@
     content="Day Pro Services offers fast, affordable garage cleanouts, junk removal, and hauling in Cleburne, Joshua, Burleson, and surrounding DFW — plus $25 OFF your first garage cleanout as a new client."
   />
 
-  <link rel="stylesheet" href="style.css" />
-  <link rel="canonical" href="https://www.yourwebsite.com/" /> <script async src="https://www.googletagmanager.com/gtag/js?id=AW-XXXXXXX"></script>
+  <!-- Google tag (gtag.js) - REPLACE AW-XXXXXXX WITH YOUR ID -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-XXXXXXX"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'AW-XXXXXXX'); // <-- replace with your Google Ads ID
   </script>
+
+  <style>
+    :root {
+      --primary: #111827;
+      --primary-light: #1f2937;
+      --accent: #f59e0b;
+      --bg: #f3f4f6;
+      --text: #111827;
+      --muted: #6b7280;
+      --radius: 14px;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Promo bar */
+    .promo-bar {
+      background: #f97316;
+      color: #111827;
+      padding: 8px 16px;
+      font-size: 13px;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+    .promo-bar strong {
+      font-weight: 800;
+    }
+    .promo-bar span.tag {
+      display:inline-block;
+      padding:2px 8px;
+      border-radius:999px;
+      font-size:11px;
+      font-weight:700;
+      background:#111827;
+      color:#fde68a;
+      margin-left:6px;
+    }
+
+    /* Header / Hero */
+    header {
+      position: relative;
+      color: #fff;
+      padding: 24px 16px 70px;
+      background: url("garage-hero-new.png") no-repeat center center/cover;
+      overflow: hidden;
+    }
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top left, rgba(245,158,11,0.15), transparent 50%),
+                  rgba(0,0,0,0.65);
+      z-index: 0;
+    }
+    header > .container {
+      position: relative;
+      z-index: 1;
+      animation: fadeInUp 0.9s ease-out;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 8px;
+    }
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+    .top-contact {
+      text-align: right;
+      font-size: 14px;
+    }
+    .top-contact a {
+      display: block;
+      font-weight: 600;
+      color: #fbbf24;
+    }
+
+    .social-box {
+      display:flex;
+      align-items:center;
+      gap:8px;
+      font-size:14px;
+      font-weight:600;
+      color:#e5e7eb;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 32px;
+      align-items: center;
+    }
+    .hero-left {
+      animation: fadeInUp 0.9s ease-out;
+    }
+    .hero-right {
+      animation: floatCard 5s ease-in-out infinite alternate;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      border-radius: 999px;
+      padding: 4px 12px;
+      font-size: 13px;
+      color: #e5e7eb;
+      margin-bottom: 12px;
+    }
+    .hero-badge span.dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #22c55e;
+    }
+    .hero h1 {
+      font-size: clamp(30px, 4.4vw, 42px);
+      margin-bottom: 10px;
+    }
+    .hero-highlight {
+      color: #fde68a;
+      font-weight: 600;
+    }
+    .hero p {
+      font-size: 16px;
+      color: #e5e7eb;
+      margin-bottom: 16px;
+      max-width: 520px;
+    }
+
+    .hero-quick-points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .hero-chip {
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:4px 10px;
+      border-radius:999px;
+      font-size:12px;
+      background:rgba(15,23,42,0.9);
+      border:1px solid rgba(148,163,184,0.6);
+      color:#e5e7eb;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 8px;
+      align-items: center;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #111827;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 15px;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: transform 0.14s ease, box-shadow 0.14s ease, filter 0.14s ease;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+    }
+    .btn-primary:hover {
+      filter: brightness(1.05);
+      transform: translateY(-1px) scale(1.02);
+      box-shadow: 0 14px 30px rgba(0,0,0,0.45);
+    }
+
+    /* Special CTA button with pulse */
+    .btn-cta-pulse {
+      position: relative;
+      overflow: hidden;
+      animation: pulse 1.8s ease-in-out infinite;
+    }
+    .btn-cta-pulse::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 999px;
+      box-shadow: 0 0 0 0 rgba(245,158,11,0.36);
+      opacity: 0;
+      animation: ring 1.8s ease-out infinite;
+      pointer-events: none;
+    }
+
+    .btn-ghost {
+      background: transparent;
+      border-radius: 999px;
+      border: 1px solid rgba(209, 213, 219, 0.9);
+      color: #e5e7eb;
+      padding: 9px 16px;
+      font-size: 14px;
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      transition: background 0.15s ease, border-color 0.15s ease;
+    }
+    .btn-ghost:hover {
+      background: rgba(15,23,42,0.9);
+      border-color:#fbbf24;
+    }
+
+    .hero-note {
+      margin-top: 10px;
+      font-size: 13px;
+      color: #d1d5db;
+      max-width: 480px;
+    }
+    .hero-note span {
+      color:#fde68a;
+      font-weight:600;
+    }
+    .hero-note .hot {
+      color:#f97316;
+      font-weight:700;
+    }
+
+    .hero-card {
+      background: rgba(15, 23, 42, 0.96);
+      border-radius: var(--radius);
+      padding: 18px 18px 16px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      box-shadow: 0 20px 45px rgba(0,0,0,0.55);
+      font-size: 14px;
+    }
+    .hero-card h2 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+    .hero-card ul {
+      list-style: none;
+      margin: 10px 0 12px;
+      padding:0;
+    }
+    .hero-card li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      margin-bottom: 6px;
+      color: #e5e7eb;
+    }
+    .check {
+      font-weight: 700;
+      color: #22c55e;
+      margin-top: 2px;
+    }
+    .hero-card-footer {
+      font-size: 12px;
+      color: #9ca3af;
+      border-top: 1px dashed rgba(148, 163, 184, 0.7);
+      padding-top: 6px;
+      margin-top: 6px;
+    }
+
+    /* Sections */
+    section {
+      padding: 38px 16px;
+    }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 18px;
+      margin-top: 16px;
+    }
+    .card {
+      background: #ffffff;
+      border-radius: var(--radius);
+      padding: 18px 16px 18px;
+      box-shadow: 0 8px 24px rgba(15,23,42,0.08);
+      border: 1px solid #e5e7eb;
+      font-size: 14px;
+    }
+    .card h3 {
+      font-size: 17px;
+      margin-bottom: 6px;
+    }
+    .eyebrow {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .section-title {
+      font-size: 22px;
+      margin-bottom: 6px;
+    }
+    .section-sub {
+      font-size: 14px;
+      color: var(--muted);
+      max-width: 650px;
+    }
+    ul {
+      padding-left: 16px;
+    }
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .pill {
+      background: #e5e7eb;
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: 12px;
+      color: #374151;
+    }
+
+    /* Pricing */
+    .price-tag {
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 2px;
+    }
+    .price-note {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* Steps */
+    .steps {
+      list-style: none;
+      padding-left: 0;
+      counter-reset: step;
+    }
+    .steps li {
+      counter-increment: step;
+      display: flex;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+    .steps li::before {
+      content: counter(step);
+      width: 20px;
+      height: 20px;
+      border-radius: 999px;
+      background: var(--primary);
+      color: #fff;
+      font-size: 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+    }
+
+    /* Contact / grids */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 2fr);
+      gap: 20px;
+      margin-top: 16px;
+    }
+    .contact-box {
+      background: #ffffff;
+      border-radius: var(--radius);
+      padding: 16px 16px 18px;
+      border: 1px solid #e5e7eb;
+      font-size: 14px;
+      box-shadow: 0 8px 24px rgba(15,23,42,0.08);
+    }
+    .contact-row {
+      margin-bottom: 8px;
+    }
+    .contact-label {
+      font-size: 12px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 2px;
+    }
+    .big-contact {
+      font-size: 18px;
+      font-weight: 700;
+    }
+    .btn-full {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: var(--primary);
+      color: #fff;
+      font-weight: 600;
+      font-size: 14px;
+      text-align: center;
+      transition: background 0.15s ease, transform 0.15s ease;
+    }
+    .btn-full:hover {
+      background:#020617;
+      transform: translateY(-1px);
+    }
+
+    /* Single gallery image */
+    .gallery-section {
+      background:#e5e7eb;
+    }
+    .gallery-wrapper {
+      margin-top: 18px;
+      background:#0b1120;
+      border-radius: var(--radius);
+      padding: 14px 14px 18px;
+      box-shadow:0 12px 30px rgba(15,23,42,0.35);
+      border:1px solid #1f2937;
+    }
+    .gallery-inner {
+      border-radius: var(--radius);
+      overflow:hidden;
+      background:#020617;
+    }
+    .gallery-inner img {
+      width:100%;
+      display:block;
+      max-height: 420px;
+      object-fit: cover;
+    }
+    .gallery-caption {
+      font-size: 13px;
+      color:#e5e7eb;
+      padding:8px 10px 4px;
+      background:#020617;
+      border-top:1px solid #111827;
+    }
+
+    /* Footer */
+    footer {
+      background: #020617;
+      color: #9ca3af;
+      padding: 18px 16px 22px;
+      font-size: 12px;
+      text-align: center;
+    }
+
+    /* Animations */
+    @keyframes pulse {
+      0% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-1px) scale(1.03); }
+      100% { transform: translateY(0) scale(1); }
+    }
+    @keyframes ring {
+      0% {
+        opacity: 0.55;
+        box-shadow: 0 0 0 0 rgba(245,158,11,0.35);
+      }
+      100% {
+        opacity: 0;
+        box-shadow: 0 0 0 16px rgba(245,158,11,0);
+      }
+    }
+    @keyframes fadeInUp {
+      from {
+        opacity:0;
+        transform: translateY(12px);
+      }
+      to {
+        opacity:1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes floatCard {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-6px); }
+    }
+
+    /* MOBILE LAYOUT TUNING */
+    @media (max-width: 800px) {
+      body {
+        font-size: 15px;
+      }
+
+      .container {
+        padding: 0 14px;
+      }
+
+      .top-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .logo img {
+        height: 130px;
+      }
+
+      header {
+        padding: 18px 12px 32px;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 22px;
+      }
+
+      .hero-left,
+      .hero-right {
+        text-align: left;
+      }
+
+      .hero-right {
+        animation: none;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn-primary,
+      .btn-ghost,
+      .btn-full {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .hero-note {
+        max-width: 100%;
+      }
+
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-section .gallery-wrapper {
+        margin-top: 14px;
+      }
+
+      .mobile-call-btn {
+        bottom: 12px !important;
+        right: 12px !important;
+      }
+    }
+
+    /* EXTRA SMALL PHONES */
+    @media (max-width: 480px) {
+      .promo-bar {
+        font-size: 11px;
+        line-height: 1.4;
+        padding: 6px 10px;
+      }
+
+      .hero h1 {
+        font-size: 24px;
+      }
+
+      .section-title {
+        font-size: 20px;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -26,20 +609,21 @@
   Text us pictures to lock in your discount.
 </div>
 
-<header id="top">
+<header>
   <div class="container">
     <div class="top-bar">
       <div class="logo">
-        <img src="daypro-logo.png" alt="Day Pro Services Logo" class="logo-img">
+        <img src="daypro-logo.png" alt="Day Pro Services Logo" style="height:180px; width:auto;">
       </div>
 
-      <div class="header-contact-group">
+      <div style="display:flex; flex-direction:column; align-items:flex-end; gap:6px;">
         <div class="top-contact">
           <span>Call or Email Anytime</span>
-          <a href="tel:+18179087241" class="tel-link">(817) 908-7241</a>
-          <a href="mailto:info@dayproservice.com" class="mail-link">info@dayproservice.com</a>
+          <a href="tel:+18179087241">(817) 908-7241</a>
+          <a href="mailto:info@dayproservice.com">info@dayproservice.com</a>
         </div>
 
+        <!-- Social media -->
         <div class="social-box">
           <span>Follow us:</span>
           <a
@@ -47,20 +631,36 @@
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Visit Dayproservices on Facebook"
-            class="social-icon facebook-icon"
+            style="
+              width:28px;
+              height:28px;
+              border-radius:50%;
+              background:#f59e0b;
+              display:flex;
+              align-items:center;
+              justify-content:center;
+              font-size:16px;
+              color:#111827;
+              cursor:pointer;
+            "
           >
-            <svg aria-hidden="true" focusable="false" width="14" height="14" viewBox="0 0 24 24"><path d="M13.5 8.5H15.75V5.75H13.5C11.43 5.75 9.75 7.43 9.75 9.5V11.25H8.25V14H9.75V19.25H12.5V14H14.75L15.75 11.25H12.5V9.5C12.5 8.95 12.95 8.5 13.5 8.5Z" fill="currentColor"/></svg>
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M13.5 8.5H15.75V5.75H13.5C11.43 5.75 9.75 7.43 9.75 9.5V11.25H8.25V14H9.75V19.25H12.5V14H14.75L15.75 11.25H12.5V9.5C12.5 8.95 12.95 8.5 13.5 8.5Z"
+                fill="currentColor"
+              />
+            </svg>
           </a>
         </div>
       </div>
     </div>
-    
-    <nav class="sticky-nav">
-      <a href="#services" class="nav-link">Services</a>
-      <a href="#pricing" class="nav-link">Pricing</a>
-      <a href="#gallery" class="nav-link">Results</a>
-      <a href="#quote" class="nav-link cta-link">Get Quote</a>
-    </nav>
+
     <div class="hero">
       <div class="hero-left">
         <div class="hero-badge">
@@ -102,11 +702,23 @@
       </div>
 
       <div class="hero-right">
-        <div class="local-badge">
-          <span class="emoji">🏠</span>
+        <div style="
+          display:flex;
+          align-items:center;
+          gap:8px;
+          background:#f59e0b;
+          padding:6px 14px;
+          border-radius:999px;
+          font-size:13px;
+          font-weight:700;
+          margin-bottom:12px;
+          color:#111827;
+          box-shadow:0 2px 6px rgba(0,0,0,0.2);
+        ">
+          <span style="font-size:16px;">🏠</span>
           Locally Owned & Operated
         </div>
-        
+       
         <div class="hero-card">
           <h2>What We Can Help With</h2>
           <ul>
@@ -127,6 +739,7 @@
 </header>
 
 <main>
+  <!-- Services / What we do -->
   <section id="services">
     <div class="container">
       <div class="eyebrow">Services</div>
@@ -176,13 +789,27 @@
     </div>
   </section>
 
+  <!-- Pricing -->
   <section id="pricing">
     <div class="container">
       <div class="eyebrow">Pricing</div>
       <h2 class="section-title">Simple, Flat-Rate Garage Cleanout Pricing</h2>
 
-      <div class="upfront-pricing-tag">
-        <span class="emoji">✔</span>
+      <div style="
+        display:inline-flex;
+        align-items:center;
+        gap:10px;
+        background:#fff;
+        padding:8px 14px;
+        margin:8px 8px 10px 0;
+        border-radius:999px;
+        font-size:14px;
+        font-weight:700;
+        border:1px solid #e5e7eb;
+        box-shadow:0 4px 12px rgba(0,0,0,0.06);
+        color:#111827;
+      ">
+        <span style="font-size:16px;">✔</span>
         100% Upfront Pricing — No Surprises
       </div>
 
@@ -191,7 +818,7 @@
         Final price may vary slightly depending on dump fees or extremely heavy items. Largest load size limited to a 16' box truck.
       </p>
 
-      <p class="promo-callout">
+      <p style="margin-top: 6px; font-size: 14px; font-weight: 600; color: #b45309;">
         ⭐ First-time clients get <strong>$25 OFF</strong> any garage cleanout when you mention this site.
       </p>
 
@@ -199,10 +826,10 @@
         <div class="card">
           <h3>Small Load</h3>
           <div class="price-tag">
-            $300 <span class="price-note-est">est.</span>
+            $300 <span style="font-size:14px; color:#6b7280;">est.</span>
           </div>
           <div class="price-note">Great for lightly-filled 1-car garages and small spaces.</div>
-          <ul class="cleanout-features">
+          <ul>
             <li>Full cleanout included</li>
             <li>Loading + hauling</li>
             <li>Basic sweep-up and basic organization</li>
@@ -213,25 +840,24 @@
         <div class="card">
           <h3>Medium Load</h3>
           <div class="price-tag">
-            $350 <span class="price-note-est">est.</span>
+            $350 <span style="font-size:14px; color:#6b7280;">est.</span>
           </div>
           <div class="price-note">Standard 1-car or medium-filled spaces.</div>
-          <ul class="cleanout-features">
+          <ul>
             <li>Full cleanout included</li>
             <li>Loading + hauling</li>
             <li>Basic sweep-up and basic organization</li>
             <li><strong>$25 OFF</strong> for first-time clients</li>
-            
           </ul>
         </div>
 
         <div class="card">
           <h3>Large Load</h3>
           <div class="price-tag">
-            $450 <span class="price-note-est">est.</span>
+            $450 <span style="font-size:14px; color:#6b7280;">est.</span>
           </div>
           <div class="price-note">Most 2-car garages or heavily-filled spaces.</div>
-          <ul class="cleanout-features">
+          <ul>
             <li>Full cleanout included</li>
             <li>Loading + hauling</li>
             <li>Basic sweep-up and basic organization</li>
@@ -239,7 +865,7 @@
           </ul>
         </div>
 
-        <div class="card cta-card">
+        <div class="card">
           <h3>Custom Quotes</h3>
           <p>
             Have a unique situation? Extra junk? Not sure which size you fall under?
@@ -256,6 +882,7 @@
     </div>
   </section>
 
+  <!-- ONE PICTURE "RESULTS" SECTION -->
   <section id="gallery" class="gallery-section">
     <div class="container">
       <div class="eyebrow">Results</div>
@@ -267,6 +894,7 @@
 
       <div class="gallery-wrapper">
         <div class="gallery-inner">
+          <!-- Replace gallery-1.jpg with your actual image file -->
           <img src="gallery-1.jpg" alt="Cleaned up garage with totes stacked neatly along the wall" />
         </div>
         <div class="gallery-caption">
@@ -277,7 +905,8 @@
     </div>
   </section>
 
-  <section id="quote">
+  <!-- FAST QUOTE SECTION (FORM + TEXT/EMAIL BUTTONS) -->
+  <section id="quote" style="padding: 38px 16px;">
     <div class="container">
       <div class="eyebrow">Fast Quote</div>
       <h2 class="section-title">Send Us Your Info for a Fast Quote</h2>
@@ -287,70 +916,69 @@
       </p>
 
       <div class="contact-grid">
-        <div class="contact-box form-box">
+        <!-- FORM SIDE -->
+        <div class="contact-box">
           <form id="quote-form" action="mailto:info@dayproservice.com" method="POST" enctype="text/plain">
             <div class="contact-row">
-              <label for="name" class="contact-label">Name</label>
+              <div class="contact-label">Name</div>
               <input
                 type="text"
-                id="name"
                 name="Name"
                 placeholder="Your name"
-                class="form-input"
+                style="width:100%;padding:8px 10px;border-radius:10px;border:1px solid #d1d5db;font-size:14px;"
               />
             </div>
 
             <div class="contact-row">
-              <label for="phone" class="contact-label">Phone</label>
+              <div class="contact-label">Phone</div>
               <input
                 type="tel"
-                id="phone"
                 name="Phone"
                 placeholder="Best number to reach you"
                 required
-                class="form-input"
+                style="width:100%;padding:8px 10px;border-radius:10px;border:1px solid #d1d5db;font-size:14px;"
               />
             </div>
 
             <div class="contact-row">
-              <label for="city" class="contact-label">City</label>
+              <div class="contact-label">City</div>
               <input
                 type="text"
-                id="city"
                 name="City"
                 placeholder="Cleburne, Joshua, Burleson, etc."
-                class="form-input"
+                style="width:100%;padding:8px 10px;border-radius:10px;border:1px solid #d1d5db;font-size:14px;"
               />
             </div>
 
             <div class="contact-row">
-              <label for="details" class="contact-label">What do you need cleaned out?</label>
+              <div class="contact-label">What do you need cleaned out?</div>
               <textarea
-                id="details"
                 name="Details"
                 placeholder="Short description of your garage or junk pile"
                 rows="3"
-                class="form-textarea"
+                style="width:100%;padding:8px 10px;border-radius:10px;border:1px solid #d1d5db;font-size:14px;resize:vertical;"
               ></textarea>
             </div>
 
-            <button type="submit" class="btn-full form-submit-btn">
+            <button type="submit" class="btn-full" style="width:100%;margin-top:12px;">
               ✅ Send Details for a Fast Quote
             </button>
 
-            <p class="form-note">
+            <p style="font-size:11px;color:#6b7280;margin-top:6px;">
               Submitting this form sends your info to our email so we can reply with a quote.
             </p>
           </form>
         </div>
 
-        <div class="contact-box cta-buttons-box">
+        <!-- TEXT/EMAIL BUTTON SIDE -->
+        <div class="contact-box">
           <div class="contact-row">
             <div class="contact-label">Prefer to text?</div>
             <a
               id="cta-text-button"
               class="btn-full"
               href="sms:+18179087241?&body=Hi%2C%20I%27d%20like%20a%20garage%2Fjunk%20cleanout%20quote.%20I%27ll%20send%20pictures%20now."
+              style="width:100%;margin-bottom:10px;"
             >
               📸 Text Photos for a Fast Quote
             </a>
@@ -362,12 +990,13 @@
               id="cta-email-button"
               class="btn-full"
               href="mailto:info@dayproservice.com?subject=Garage%20cleanout%20quote&body=Hi%2C%20I%27d%20like%20a%20quote.%20I%27ll%20attach%20pictures%20of%20my%20garage."
+              style="width:100%;margin-bottom:10px;"
             >
               ✉️ Email Us for a Quote
             </a>
           </div>
 
-          <p class="cta-buttons-note">
+          <p style="font-size:12px;color:#6b7280;margin-top:4px;">
             Most quotes are sent in under 15 minutes during normal hours.
             First-time clients get <strong>$25 OFF</strong>.
           </p>
@@ -376,6 +1005,7 @@
     </div>
   </section>
 
+  <!-- How it works -->
   <section id="how">
     <div class="container">
       <div class="eyebrow">How it works</div>
@@ -387,19 +1017,19 @@
       <div class="card">
         <ul class="steps">
           <li>
-            <div class="step-content">
+            <div>
               <strong>Send pictures.</strong> Text photos of your garage or junk pile to 
               <strong>(817) 908-7241</strong> and mention you’re a first-time client.
             </div>
           </li>
           <li>
-            <div class="step-content">
+            <div>
               <strong>Get a quote.</strong> We’ll reply with a fast, upfront quote, apply your <strong>$25 OFF</strong>,
               and send schedule options.
             </div>
           </li>
           <li>
-            <div class="step-content">
+            <div>
               <strong>We clean & haul.</strong> You point at what needs to go. We load it, clean it out,
               and haul it away. You get your space back — with less junk and a little extra cash saved.
             </div>
@@ -409,6 +1039,7 @@
     </div>
   </section>
 
+  <!-- Service area -->
   <section id="area">
     <div class="container">
       <div class="eyebrow">Service Area</div>
@@ -421,7 +1052,7 @@
       <div class="card-grid">
         <div class="card">
           <h3>Primary Areas</h3>
-          <ul class="area-list">
+          <ul>
             <li>Cleburne</li>
             <li>Joshua</li>
             <li>Burleson</li>
@@ -434,12 +1065,12 @@
             We can travel to other parts of DFW for larger jobs or full property cleanouts.
             Reach out with the address and details for a custom quote and to see if the first-time discount applies.
           </p>
-          
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Contact -->
   <section id="contact">
     <div class="container">
       <div class="eyebrow">Contact</div>
@@ -465,45 +1096,119 @@
             </div>
           </div>
           <a
-            class="btn-full cta-contact-btn"
+            class="btn-full"
             href="sms:+18179087241?&body=Hi%2C%20I%27m%20a%20first-time%20client%20and%20I%27m%20texting%20pictures%20for%20a%20garage%2Fjunk%20cleanout%20quote.%20I%27d%20like%20the%20$25%20OFF%20special."
           >
             📸 Text Pictures for a Quote + $25 OFF
           </a>
         </div>
-        
+
         <div class="contact-box">
-            <div class="contact-row">
-                <div class="contact-label">Business Hours</div>
-                <div class="big-contact">Mon - Sat</div>
+          <div class="contact-row">
+            <div class="contact-label">Email</div>
+            <div class="big-contact">
+              <a href="mailto:info@dayproservice.com">info@dayproservice.com</a>
             </div>
-            <div class="contact-row">
-                <div class="contact-label">Email</div>
-                <div class="big-contact">
-                    <a href="mailto:info@dayproservice.com">info@dayproservice.com</a>
-                </div>
+          </div>
+          <div class="contact-row">
+            <div class="contact-label">What to include</div>
+            <div>
+              A short description, photos if possible, and your city. Let us know you’re a first-time client
+              and we’ll include your <strong>$25 OFF</strong> in the quote.
             </div>
-            <a
-                class="btn-full cta-contact-btn"
-                href="#quote"
-            >
-                Start Your Quote
-            </a>
+          </div>
+          <a class="btn-full" href="mailto:info@dayproservice.com?subject=First-time%20garage%20cleanout%20quote%20($25%20OFF)">
+            ✉️ Email for an Estimate + $25 OFF
+          </a>
         </div>
-        
       </div>
     </div>
   </section>
-
 </main>
 
 <footer>
-  <div class="container">
-    <p>
-      &copy; 2025 Day Pro Services, LLC. All rights reserved. Locally owned and operated in Cleburne, Texas.
-    </p>
-  </div>
+  © <span id="year"></span> Dayproservices — Garage Cleanouts, Junk Removal & Hauling • Cleburne • Joshua • Burleson • DFW
 </footer>
+
+<script>
+  // Set current year in footer automatically
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+<!-- Sticky Call Button (Mobile Only) -->
+<a href="tel:+18179087241" 
+   style="
+     position: fixed;
+     bottom: 16px;
+     right: 16px;
+     background: #f59e0b;
+     color: #111827;
+     padding: 12px 20px;
+     border-radius: 999px;
+     font-weight: 700;
+     font-size: 15px;
+     box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+     z-index: 9999;
+     display: none;
+   "
+   class="mobile-call-btn">
+   Call Now — Ask About $25 OFF
+</a>
+
+<script>
+  // Show button only on mobile screens
+  function handleCallButton() {
+    const btn = document.querySelector('.mobile-call-btn');
+    if (window.innerWidth <= 760) {
+      btn.style.display = 'block';
+    } else {
+      btn.style.display = 'none';
+    }
+  }
+  handleCallButton();
+  window.addEventListener('resize', handleCallButton);
+</script>
+
+<!-- GOOGLE ADS CONVERSION EVENTS -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // FORM SUBMIT -> Lead
+    var quoteForm = document.getElementById('quote-form');
+    if (quoteForm) {
+      quoteForm.addEventListener('submit', function () {
+        if (typeof gtag === 'function') {
+          gtag('event', 'conversion', {
+            'send_to': 'AW-XXXXXXX/FORM_LEAD_ID' // replace with your form conversion send_to
+          });
+        }
+      });
+    }
+
+    // CLICK-TO-TEXT -> Lead
+    var textButtons = document.querySelectorAll('a[href^="sms:+18179087241"]');
+    textButtons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        if (typeof gtag === 'function') {
+          gtag('event', 'conversion', {
+            'send_to': 'AW-XXXXXXX/SMS_LEAD_ID' // replace with your SMS conversion send_to
+          });
+        }
+      });
+    });
+
+    // CLICK-TO-EMAIL -> Lead
+    var emailButtons = document.querySelectorAll('a[href^="mailto:info@dayproservice.com"]');
+    emailButtons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        if (typeof gtag === 'function') {
+          gtag('event', 'conversion', {
+            'send_to': 'AW-XXXXXXX/EMAIL_LEAD_ID' // replace with your email conversion send_to
+          });
+        }
+      });
+    });
+  });
+</script>
 
 </body>
 </html>
