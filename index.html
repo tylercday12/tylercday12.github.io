@@ -440,55 +440,36 @@
       transform: translateY(-1px);
     }
 
-  <!-- SLIDING GALLERY (2 IMAGES – COMPACT) -->
-<section id="gallery" class="gallery-section">
-  <div class="container">
-    <div class="eyebrow">Results</div>
-    <h2 class="section-title">Real Jobs — Real Results</h2>
-    <p class="section-sub">
-      A couple cleanouts we’ve completed. Want a fast quote? Text pics and we’ll price it quick.
-    </p>
-
-    <div class="slider" aria-label="Job photos slider" style="max-width:720px;margin:0 auto;">
-      <button class="slider-btn prev" type="button" aria-label="Previous photo">‹</button>
-
-      <div class="slider-viewport">
-        <div class="slider-track">
-          <figure class="slide">
-            <img
-              src="gallery-1.jpg"
-              alt="Garage cleanout result photo 1"
-              loading="lazy"
-              style="height:200px;object-fit:cover;width:100%;"
-            />
-            <figcaption class="gallery-caption">
-              Cleanout complete — floor space opened up.
-            </figcaption>
-          </figure>
-
-          <figure class="slide">
-            <img
-              src="gallery-2.jpg"
-              alt="Garage cleanout result photo 2"
-              loading="lazy"
-              style="height:200px;object-fit:cover;width:100%;"
-            />
-            <figcaption class="gallery-caption">
-              Another garage cleared out fast.
-            </figcaption>
-          </figure>
-        </div>
-      </div>
-
-      <button class="slider-btn next" type="button" aria-label="Next photo">›</button>
-
-      <div class="slider-dots" role="tablist" aria-label="Choose a photo">
-        <button class="dot active" type="button"></button>
-        <button class="dot" type="button"></button>
-      </div>
-    </div>
-  </div>
-</section>
+    /* Single gallery image */
+    .gallery-section {
+      background:#e5e7eb;
+    }
+    .gallery-wrapper {
+      margin-top: 18px;
+      background:#0b1120;
+      border-radius: var(--radius);
+      padding: 14px 14px 18px;
+      box-shadow:0 12px 30px rgba(15,23,42,0.35);
+      border:1px solid #1f2937;
+    }
+    .gallery-inner {
+      border-radius: var(--radius);
+      overflow:hidden;
+      background:#020617;
+    }
+    .gallery-inner img {
+      width:100%;
+      display:block;
+      max-height: 420px;
+      object-fit: cover;
+    }
+    .gallery-caption {
+      font-size: 13px;
+      color:#e5e7eb;
+      padding:8px 10px 4px;
+      background:#020617;
+      border-top:1px solid #111827;
+    }
 
     /* Footer */
     footer {
