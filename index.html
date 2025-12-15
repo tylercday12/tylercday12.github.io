@@ -440,31 +440,41 @@
       transform: translateY(-1px);
     }
 
-   <!-- SLIDING GALLERY (2 IMAGES) -->
+  <!-- SLIDING GALLERY (2 IMAGES – COMPACT) -->
 <section id="gallery" class="gallery-section">
   <div class="container">
     <div class="eyebrow">Results</div>
     <h2 class="section-title">Real Jobs — Real Results</h2>
     <p class="section-sub">
-      Swipe through a couple cleanouts we’ve done. Want a fast quote? Text pics and we’ll price it quick.
+      A couple cleanouts we’ve completed. Want a fast quote? Text pics and we’ll price it quick.
     </p>
 
-    <div class="slider" aria-label="Job photos slider">
+    <div class="slider" aria-label="Job photos slider" style="max-width:720px;margin:0 auto;">
       <button class="slider-btn prev" type="button" aria-label="Previous photo">‹</button>
 
       <div class="slider-viewport">
         <div class="slider-track">
           <figure class="slide">
-            <img src="gallery-1.jpg" alt="Garage cleanout result photo 1" loading="lazy" />
+            <img
+              src="gallery-1.jpg"
+              alt="Garage cleanout result photo 1"
+              loading="lazy"
+              style="height:200px;object-fit:cover;width:100%;"
+            />
             <figcaption class="gallery-caption">
-              Cleanout result — floor space opened up and everything cleared out.
+              Cleanout complete — floor space opened up.
             </figcaption>
           </figure>
 
           <figure class="slide">
-            <img src="gallery-2.jpg" alt="Garage cleanout result photo 2" loading="lazy" />
+            <img
+              src="gallery-2.jpg"
+              alt="Garage cleanout result photo 2"
+              loading="lazy"
+              style="height:200px;object-fit:cover;width:100%;"
+            />
             <figcaption class="gallery-caption">
-              Another cleanout — more room, less clutter, done fast.
+              Another garage cleared out fast.
             </figcaption>
           </figure>
         </div>
@@ -473,8 +483,8 @@
       <button class="slider-btn next" type="button" aria-label="Next photo">›</button>
 
       <div class="slider-dots" role="tablist" aria-label="Choose a photo">
-        <button class="dot active" type="button" aria-label="Go to photo 1"></button>
-        <button class="dot" type="button" aria-label="Go to photo 2"></button>
+        <button class="dot active" type="button"></button>
+        <button class="dot" type="button"></button>
       </div>
     </div>
   </div>
