@@ -4,20 +4,7 @@
   <meta charset="UTF-8" />
   <title>Dayproservices | Garage Cleanouts & Hauling in DFW</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta
-    name="description"
-    content="Day Pro Services offers fast, affordable garage cleanouts, junk removal, and hauling in Cleburne, Joshua, Burleson, and surrounding DFW — plus $25 OFF your first garage cleanout as a new client."
-  />
-
-  <!-- Google tag (gtag.js) - REPLACE AW-XXXXXXX WITH YOUR ID -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-XXXXXXX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'AW-XXXXXXX'); // <-- replace with your Google Ads ID
-  </script>
-
+  <meta name="description" content="Dayproservices offers fast, affordable garage cleanouts, junk removal, and hauling in Cleburne, Joshua, Burleson, and surrounding DFW." />
   <style>
     :root {
       --primary: #111827;
@@ -44,49 +31,24 @@
       color: inherit;
     }
 
-    /* Promo bar */
-    .promo-bar {
-      background: #f97316;
-      color: #111827;
-      padding: 8px 16px;
-      font-size: 13px;
-      text-align: center;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-    }
-    .promo-bar strong {
-      font-weight: 800;
-    }
-    .promo-bar span.tag {
-      display:inline-block;
-      padding:2px 8px;
-      border-radius:999px;
-      font-size:11px;
-      font-weight:700;
-      background:#111827;
-      color:#fde68a;
-      margin-left:6px;
-    }
-
     /* Header / Hero */
     header {
       position: relative;
       color: #fff;
-      padding: 24px 16px 70px;
+      padding: 24px 16px 60px;
       background: url("garage-hero-new.png") no-repeat center center/cover;
-      overflow: hidden;
     }
+    /* Dark overlay */
     header::before {
       content: "";
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at top left, rgba(245,158,11,0.15), transparent 50%),
-                  rgba(0,0,0,0.65);
+      background: rgba(0, 0, 0, 0.55);
       z-index: 0;
     }
     header > .container {
       position: relative;
       z-index: 1;
-      animation: fadeInUp 0.9s ease-out;
     }
 
     .container {
@@ -102,6 +64,10 @@
       margin-bottom: 32px;
     }
     .logo {
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 18px;
       display: flex;
       align-items: center;
     }
@@ -114,29 +80,21 @@
       font-weight: 600;
       color: #fbbf24;
     }
-
-    .social-box {
-      display:flex;
-      align-items:center;
-      gap:8px;
-      font-size:14px;
-      font-weight:600;
-      color:#e5e7eb;
-    }
-
     .hero {
       display: grid;
       grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
       gap: 32px;
       align-items: center;
     }
-    .hero-left {
-      animation: fadeInUp 0.9s ease-out;
+    .hero h1 {
+      font-size: clamp(28px, 4vw, 38px);
+      margin-bottom: 12px;
     }
-    .hero-right {
-      animation: floatCard 5s ease-in-out infinite alternate;
+    .hero p {
+      font-size: 16px;
+      color: #e5e7eb;
+      margin-bottom: 18px;
     }
-
     .hero-badge {
       display: inline-flex;
       align-items: center;
@@ -155,45 +113,11 @@
       border-radius: 999px;
       background: #22c55e;
     }
-    .hero h1 {
-      font-size: clamp(30px, 4.4vw, 42px);
-      margin-bottom: 10px;
-    }
-    .hero-highlight {
-      color: #fde68a;
-      font-weight: 600;
-    }
-    .hero p {
-      font-size: 16px;
-      color: #e5e7eb;
-      margin-bottom: 16px;
-      max-width: 520px;
-    }
-
-    .hero-quick-points {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 16px;
-    }
-    .hero-chip {
-      display:inline-flex;
-      align-items:center;
-      gap:6px;
-      padding:4px 10px;
-      border-radius:999px;
-      font-size:12px;
-      background:rgba(15,23,42,0.9);
-      border:1px solid rgba(148,163,184,0.6);
-      color:#e5e7eb;
-    }
-
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
       margin-top: 8px;
-      align-items: center;
     }
     .btn-primary {
       background: var(--accent);
@@ -206,33 +130,11 @@
       cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      transition: transform 0.14s ease, box-shadow 0.14s ease, filter 0.14s ease;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+      gap: 6px;
     }
     .btn-primary:hover {
       filter: brightness(1.05);
-      transform: translateY(-1px) scale(1.02);
-      box-shadow: 0 14px 30px rgba(0,0,0,0.45);
     }
-
-    /* Special CTA button with pulse */
-    .btn-cta-pulse {
-      position: relative;
-      overflow: hidden;
-      animation: pulse 1.8s ease-in-out infinite;
-    }
-    .btn-cta-pulse::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: 999px;
-      box-shadow: 0 0 0 0 rgba(245,158,11,0.36);
-      opacity: 0;
-      animation: ring 1.8s ease-out infinite;
-      pointer-events: none;
-    }
-
     .btn-ghost {
       background: transparent;
       border-radius: 999px;
@@ -240,33 +142,15 @@
       color: #e5e7eb;
       padding: 9px 16px;
       font-size: 14px;
-      display:inline-flex;
-      align-items:center;
-      gap:6px;
-      transition: background 0.15s ease, border-color 0.15s ease;
     }
-    .btn-ghost:hover {
-      background: rgba(15,23,42,0.9);
-      border-color:#fbbf24;
-    }
-
     .hero-note {
       margin-top: 10px;
       font-size: 13px;
       color: #d1d5db;
-      max-width: 480px;
+      max-width: 420px;
     }
-    .hero-note span {
-      color:#fde68a;
-      font-weight:600;
-    }
-    .hero-note .hot {
-      color:#f97316;
-      font-weight:700;
-    }
-
     .hero-card {
-      background: rgba(15, 23, 42, 0.96);
+      background: rgba(15, 23, 42, 0.95);
       border-radius: var(--radius);
       padding: 18px 18px 16px;
       border: 1px solid rgba(148, 163, 184, 0.6);
@@ -280,7 +164,6 @@
     .hero-card ul {
       list-style: none;
       margin: 10px 0 12px;
-      padding:0;
     }
     .hero-card li {
       display: flex;
@@ -394,7 +277,7 @@
       margin-top: 2px;
     }
 
-    /* Contact / grids */
+    /* Contact section */
     .contact-grid {
       display: grid;
       grid-template-columns: minmax(0, 2fr) minmax(0, 2fr);
@@ -433,42 +316,6 @@
       font-weight: 600;
       font-size: 14px;
       text-align: center;
-      transition: background 0.15s ease, transform 0.15s ease;
-    }
-    .btn-full:hover {
-      background:#020617;
-      transform: translateY(-1px);
-    }
-
-    /* Single gallery image */
-    .gallery-section {
-      background:#e5e7eb;
-    }
-    .gallery-wrapper {
-      margin-top: 18px;
-      background:#0b1120;
-      border-radius: var(--radius);
-      padding: 14px 14px 18px;
-      box-shadow:0 12px 30px rgba(15,23,42,0.35);
-      border:1px solid #1f2937;
-    }
-    .gallery-inner {
-      border-radius: var(--radius);
-      overflow:hidden;
-      background:#020617;
-    }
-    .gallery-inner img {
-      width:100%;
-      display:block;
-      max-height: 420px;
-      object-fit: cover;
-    }
-    .gallery-caption {
-      font-size: 13px;
-      color:#e5e7eb;
-      padding:8px 10px 4px;
-      background:#020617;
-      border-top:1px solid #111827;
     }
 
     /* Footer */
@@ -480,134 +327,28 @@
       text-align: center;
     }
 
-    /* Animations */
-    @keyframes pulse {
-      0% { transform: translateY(0) scale(1); }
-      50% { transform: translateY(-1px) scale(1.03); }
-      100% { transform: translateY(0) scale(1); }
-    }
-    @keyframes ring {
-      0% {
-        opacity: 0.55;
-        box-shadow: 0 0 0 0 rgba(245,158,11,0.35);
-      }
-      100% {
-        opacity: 0;
-        box-shadow: 0 0 0 16px rgba(245,158,11,0);
-      }
-    }
-    @keyframes fadeInUp {
-      from {
-        opacity:0;
-        transform: translateY(12px);
-      }
-      to {
-        opacity:1;
-        transform: translateY(0);
-      }
-    }
-    @keyframes floatCard {
-      0% { transform: translateY(0); }
-      100% { transform: translateY(-6px); }
-    }
-
-    /* MOBILE LAYOUT TUNING */
+    /* Responsive */
     @media (max-width: 800px) {
-      body {
-        font-size: 15px;
-      }
-
-      .container {
-        padding: 0 14px;
-      }
-
       .top-bar {
         flex-direction: column;
         align-items: flex-start;
-        gap: 10px;
       }
-
-      .logo img {
-        height: 130px;
-      }
-
-      header {
-        padding: 18px 12px 32px;
-      }
-
-      .hero {
-        grid-template-columns: 1fr;
-        gap: 22px;
-      }
-
-      .hero-left,
-      .hero-right {
+      .top-contact {
         text-align: left;
       }
-
-      .hero-right {
-        animation: none;
+      header {
+        padding-bottom: 40px;
       }
-
-      .hero-actions {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .btn-primary,
-      .btn-ghost,
-      .btn-full {
-        width: 100%;
-        justify-content: center;
-      }
-
-      .hero-note {
-        max-width: 100%;
-      }
-
-      .card-grid {
+      .hero {
         grid-template-columns: 1fr;
       }
-
       .contact-grid {
         grid-template-columns: 1fr;
-      }
-
-      .gallery-section .gallery-wrapper {
-        margin-top: 14px;
-      }
-
-      .mobile-call-btn {
-        bottom: 12px !important;
-        right: 12px !important;
-      }
-    }
-
-    /* EXTRA SMALL PHONES */
-    @media (max-width: 480px) {
-      .promo-bar {
-        font-size: 11px;
-        line-height: 1.4;
-        padding: 6px 10px;
-      }
-
-      .hero h1 {
-        font-size: 24px;
-      }
-
-      .section-title {
-        font-size: 20px;
       }
     }
   </style>
 </head>
 <body>
-
-<div class="promo-bar">
-  🔥 <strong>First-Time Client Special — Get $25 OFF Your First Garage Cleanout</strong>
-  <span class="tag">Limited spots this week</span><br />
-  Text us pictures to lock in your discount.
-</div>
 
 <header>
   <div class="container">
@@ -623,85 +364,63 @@
           <a href="mailto:info@dayproservice.com">info@dayproservice.com</a>
         </div>
 
-        <!-- Social media -->
-        <div class="social-box">
+        <!-- Social media (Facebook placeholder) -->
+        <div class="social-box" style="
+          display:flex;
+          align-items:center;
+          gap:8px;
+          font-size:14px;
+          font-weight:600;
+          color:#e5e7eb;
+        ">
           <span>Follow us:</span>
-          <a
-            href="https://www.facebook.com/profile.php?id=61584112049218"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Visit Dayproservices on Facebook"
-            style="
-              width:28px;
-              height:28px;
-              border-radius:50%;
-              background:#f59e0b;
-              display:flex;
-              align-items:center;
-              justify-content:center;
-              font-size:16px;
-              color:#111827;
-              cursor:pointer;
-            "
-          >
-            <svg
-              aria-hidden="true"
-              focusable="false"
-              width="14"
-              height="14"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M13.5 8.5H15.75V5.75H13.5C11.43 5.75 9.75 7.43 9.75 9.5V11.25H8.25V14H9.75V19.25H12.5V14H14.75L15.75 11.25H12.5V9.5C12.5 8.95 12.95 8.5 13.5 8.5Z"
-                fill="currentColor"
-              />
-            </svg>
-          </a>
+          <!-- Facebook Icon (non-functional for now) -->
+          <div style="
+            width:28px;
+            height:28px;
+            border-radius:50%;
+            background:#f59e0b;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-size:16px;
+            color:#111827;
+            cursor:default;
+          ">
+            f
+          </div>
         </div>
       </div>
     </div>
 
     <div class="hero">
-      <div class="hero-left">
+      <div>
         <div class="hero-badge">
           <span class="dot"></span>
           <span>Local cleanout & hauling • Cleburne • Joshua • Burleson • DFW</span>
         </div>
-        <h1>
-          Text Us Pictures.<br />
-          <span class="hero-highlight">Get a Fast Quote & $25 OFF Your First Cleanout.</span>
-        </h1>
+        <h1>Garage Cleanouts, Junk Removal & Hauling — Done the Right Way.</h1>
         <p>
-          Day Pro Services helps you clear out garages, sheds, rooms, and whole properties —
-          fast, affordable, and local. First-time clients automatically save $25 when you book through this page.
+          Day pro services helps you clear out garages, sheds, rooms, and whole properties —
+          fast, affordable, and local. You point, we clean, load, and haul it away.
         </p>
-
-        <div class="hero-quick-points">
-          <div class="hero-chip">✅ First-time clients: $25 OFF</div>
-          <div class="hero-chip">🚚 We load, haul & dump it</div>
-          <div class="hero-chip">🏠 Cleburne-based, serving DFW</div>
-        </div>
-
         <div class="hero-actions">
-          <a
-            class="btn-primary btn-cta-pulse"
-            href="sms:+18179087241?&body=Hi%2C%20I%27m%20a%20first-time%20client%20and%20I%27d%20like%20a%20quote%20(with%20the%20$25%20OFF).%20Sending%20pictures%20of%20my%20garage%2Fjunk%20now."
-          >
-            📸 Text Photos for a Fast Quote + $25 OFF
+          <a class="btn-primary" href="tel:+18179087241">
+            📞 Call Now to Schedule
           </a>
-
-          <a class="btn-ghost" href="tel:+18179087241">
-            📞 Call Now — Ask About First-Time Pricing
+          <a class="btn-primary" href="#contact">
+            Get a Free Estimate
+          </a>
+          <a class="btn-primary" href="#pricing">
+            View Pricing
           </a>
         </div>
-
         <div class="hero-note">
-          <span class="hot">🔥 Only 3 discounted spots left this week</span> for first-time clients.  
-          Most quotes sent in under <span>15 minutes</span> during normal hours.
+          Serving Cleburne, Joshua, Burleson and surrounding DFW. No hidden fees, straight-up pricing.
         </div>
       </div>
 
-      <div class="hero-right">
+      <div>
         <div style="
           display:flex;
           align-items:center;
@@ -728,9 +447,7 @@
             <li><span class="check">✔</span> Full-property & estate cleanouts</li>
           </ul>
           <div class="hero-card-footer">
-            First-time clients get <strong>$25 OFF</strong> any garage cleanout.  
-            Text a few photos of your garage or junk pile to <strong>(817) 908-7241</strong> 
-            for a quick ballpark estimate before we roll out.
+            Text a few photos of your garage or junk pile to <strong>(817) 908-7241</strong> for a quick ballpark estimate.
           </div>
         </div>
       </div>
@@ -746,7 +463,7 @@
       <h2 class="section-title">Cleanouts & Hauling Made Simple</h2>
       <p class="section-sub">
         Whether it’s a packed garage, old furniture, boxes, or general junk that’s been sitting for years,
-        Day Pro Services makes it easy to get your space back — and first-time clients save $25 on their first cleanout.
+        Day pro services makes it easy to get your space back.
       </p>
 
       <div class="card-grid">
@@ -754,7 +471,7 @@
           <h3>Garage Cleanouts</h3>
           <p>
             We clear out your garage from wall to wall — old furniture, boxes, random clutter, you name it.
-            You tell us what stays and what goes, we handle the rest.
+            You tell us what stays and what goes.
           </p>
           <div class="pill-list">
             <span class="pill">Single & double garages</span>
@@ -795,6 +512,7 @@
       <div class="eyebrow">Pricing</div>
       <h2 class="section-title">Simple, Flat-Rate Garage Cleanout Pricing</h2>
 
+      <!-- Guarantee badge -->
       <div style="
         display:inline-flex;
         align-items:center;
@@ -819,7 +537,7 @@
       </p>
 
       <p style="margin-top: 6px; font-size: 14px; font-weight: 600; color: #b45309;">
-        ⭐ First-time clients get <strong>$25 OFF</strong> any garage cleanout when you mention this site.
+        🔥 Cash discounts available — ask when booking!
       </p>
 
       <div class="card-grid">
@@ -833,7 +551,6 @@
             <li>Full cleanout included</li>
             <li>Loading + hauling</li>
             <li>Basic sweep-up and basic organization</li>
-            <li><strong>$25 OFF</strong> for first-time clients</li>
           </ul>
         </div>
 
@@ -847,7 +564,6 @@
             <li>Full cleanout included</li>
             <li>Loading + hauling</li>
             <li>Basic sweep-up and basic organization</li>
-            <li><strong>$25 OFF</strong> for first-time clients</li>
           </ul>
         </div>
 
@@ -861,7 +577,6 @@
             <li>Full cleanout included</li>
             <li>Loading + hauling</li>
             <li>Basic sweep-up and basic organization</li>
-            <li><strong>$25 OFF</strong> for first-time clients</li>
           </ul>
         </div>
 
@@ -869,137 +584,9 @@
           <h3>Custom Quotes</h3>
           <p>
             Have a unique situation? Extra junk? Not sure which size you fall under?
-            Text photos of your garage or junk pile and get a no-pressure estimate — first-time clients still get $25 OFF.
+            Text photos of your garage or junk pile and get a no-pressure estimate.
           </p>
-          <a
-            href="sms:+18179087241?&body=Hi%2C%20I%27m%20a%20first-time%20client%20and%20I%27d%20like%20a%20quote%20(with%20the%20$25%20OFF).%20Sending%20pictures%20now."
-            class="btn-full"
-          >
-            📸 Text Photos for an Estimate + $25 OFF
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ONE PICTURE "RESULTS" SECTION -->
-  <section id="gallery" class="gallery-section">
-    <div class="container">
-      <div class="eyebrow">Results</div>
-      <h2 class="section-title">Real Job — Real Space Cleaned Up</h2>
-      <p class="section-sub">
-        Here’s one of the garages we helped transform for a first-time client. Your space can look like this too —
-        just text us your pictures and we’ll send a fast quote (with $25 OFF your first cleanout).
-      </p>
-
-      <div class="gallery-wrapper">
-        <div class="gallery-inner">
-          <!-- Replace gallery-1.jpg with your actual image file -->
-          <img src="gallery-1.jpg" alt="Cleaned up garage with totes stacked neatly along the wall" />
-        </div>
-        <div class="gallery-caption">
-          After: Garage cleared out and organized — floor space opened up, boxes and totes stacked neatly.  
-          This client also received <strong>$25 OFF</strong> as a first-time customer.
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAST QUOTE SECTION (FORM + TEXT/EMAIL BUTTONS) -->
-  <section id="quote" style="padding: 38px 16px;">
-    <div class="container">
-      <div class="eyebrow">Fast Quote</div>
-      <h2 class="section-title">Send Us Your Info for a Fast Quote</h2>
-      <p class="section-sub">
-        You can text us photos, email us, or use this quick form.
-        First-time clients still get <strong>$25 OFF</strong>.
-      </p>
-
-      <div class="contact-grid">
-        <!-- FORM SIDE -->
-        <div class="contact-box">
-          <form id="quote-form" action="mailto:info@dayproservice.com" method="POST" enctype="text/plain">
-            <div class="contact-row">
-              <div class="contact-label">Name</div>
-              <input
-                type="text"
-                name="Name"
-                placeholder="Your name"
-                style="width:100%;padding:8px 10px;border-radius:10px;border:1px solid #d1d5db;font-size:14px;"
-              />
-            </div>
-
-            <div class="contact-row">
-              <div class="contact-label">Phone</div>
-              <input
-                type="tel"
-                name="Phone"
-                placeholder="Best number to reach you"
-                required
-                style="width:100%;padding:8px 10px;border-radius:10px;border:1px solid #d1d5db;font-size:14px;"
-              />
-            </div>
-
-            <div class="contact-row">
-              <div class="contact-label">City</div>
-              <input
-                type="text"
-                name="City"
-                placeholder="Cleburne, Joshua, Burleson, etc."
-                style="width:100%;padding:8px 10px;border-radius:10px;border:1px solid #d1d5db;font-size:14px;"
-              />
-            </div>
-
-            <div class="contact-row">
-              <div class="contact-label">What do you need cleaned out?</div>
-              <textarea
-                name="Details"
-                placeholder="Short description of your garage or junk pile"
-                rows="3"
-                style="width:100%;padding:8px 10px;border-radius:10px;border:1px solid #d1d5db;font-size:14px;resize:vertical;"
-              ></textarea>
-            </div>
-
-            <button type="submit" class="btn-full" style="width:100%;margin-top:12px;">
-              ✅ Send Details for a Fast Quote
-            </button>
-
-            <p style="font-size:11px;color:#6b7280;margin-top:6px;">
-              Submitting this form sends your info to our email so we can reply with a quote.
-            </p>
-          </form>
-        </div>
-
-        <!-- TEXT/EMAIL BUTTON SIDE -->
-        <div class="contact-box">
-          <div class="contact-row">
-            <div class="contact-label">Prefer to text?</div>
-            <a
-              id="cta-text-button"
-              class="btn-full"
-              href="sms:+18179087241?&body=Hi%2C%20I%27d%20like%20a%20garage%2Fjunk%20cleanout%20quote.%20I%27ll%20send%20pictures%20now."
-              style="width:100%;margin-bottom:10px;"
-            >
-              📸 Text Photos for a Fast Quote
-            </a>
-          </div>
-
-          <div class="contact-row">
-            <div class="contact-label">Prefer email?</div>
-            <a
-              id="cta-email-button"
-              class="btn-full"
-              href="mailto:info@dayproservice.com?subject=Garage%20cleanout%20quote&body=Hi%2C%20I%27d%20like%20a%20quote.%20I%27ll%20attach%20pictures%20of%20my%20garage."
-              style="width:100%;margin-bottom:10px;"
-            >
-              ✉️ Email Us for a Quote
-            </a>
-          </div>
-
-          <p style="font-size:12px;color:#6b7280;margin-top:4px;">
-            Most quotes are sent in under 15 minutes during normal hours.
-            First-time clients get <strong>$25 OFF</strong>.
-          </p>
+          <a href="sms:+18179087241" class="btn-full">Text Photos for Estimate</a>
         </div>
       </div>
     </div>
@@ -1011,27 +598,26 @@
       <div class="eyebrow">How it works</div>
       <h2 class="section-title">Simple 3-Step Process</h2>
       <p class="section-sub">
-        No complicated apps, no headaches. Just reach out, approve the price, and we handle the rest — with a first-time discount if it’s your first cleanout with us.
+        No complicated scheduling apps, no headaches. Just reach out, approve the price, and we handle the rest.
       </p>
 
       <div class="card">
         <ul class="steps">
           <li>
             <div>
-              <strong>Send pictures.</strong> Text photos of your garage or junk pile to 
-              <strong>(817) 908-7241</strong> and mention you’re a first-time client.
+              <strong>Reach out.</strong> Call or text <strong>(817) 908-7241</strong> with a short description or photos of the space.
             </div>
           </li>
           <li>
             <div>
-              <strong>Get a quote.</strong> We’ll reply with a fast, upfront quote, apply your <strong>$25 OFF</strong>,
-              and send schedule options.
+              <strong>Get a quote.</strong> We’ll give you a ballpark over text or come by for a quick look
+              and give a firm price before starting.
             </div>
           </li>
           <li>
             <div>
               <strong>We clean & haul.</strong> You point at what needs to go. We load it, clean it out,
-              and haul it away. You get your space back — with less junk and a little extra cash saved.
+              and haul it away. You get your space back.
             </div>
           </li>
         </ul>
@@ -1045,8 +631,8 @@
       <div class="eyebrow">Service Area</div>
       <h2 class="section-title">Based in Cleburne, Serving DFW</h2>
       <p class="section-sub">
-        Day Pro Services is locally based in Cleburne and serves nearby cities and the greater DFW area.
-        If you’re not sure you’re in range, just text and ask — first-time client special still applies if we can take the job.
+        Dayproservices is locally based in Cleburne and serves nearby cities and the greater DFW area.
+        If you’re not sure you’re in range, just text and ask.
       </p>
 
       <div class="card-grid">
@@ -1063,7 +649,7 @@
           <h3>Extended DFW</h3>
           <p>
             We can travel to other parts of DFW for larger jobs or full property cleanouts.
-            Reach out with the address and details for a custom quote and to see if the first-time discount applies.
+            Reach out with the address and details for a custom quote.
           </p>
         </div>
       </div>
@@ -1077,7 +663,6 @@
       <h2 class="section-title">Ready to Clear Some Space?</h2>
       <p class="section-sub">
         Call or text to get started. You can also email with photos and a quick description of what you need cleaned out.
-        First-time clients can mention this page to receive <strong>$25 OFF</strong> their first garage cleanout.
       </p>
 
       <div class="contact-grid">
@@ -1091,16 +676,10 @@
           <div class="contact-row">
             <div class="contact-label">Fastest way</div>
             <div>
-              Text a few photos of your garage or junk pile for a quick estimate — 
-              mention you’re a first-time client to lock in your <strong>$25 OFF</strong>.
+              Text a few photos of your garage or junk pile for a quick estimate.
             </div>
           </div>
-          <a
-            class="btn-full"
-            href="sms:+18179087241?&body=Hi%2C%20I%27m%20a%20first-time%20client%20and%20I%27m%20texting%20pictures%20for%20a%20garage%2Fjunk%20cleanout%20quote.%20I%27d%20like%20the%20$25%20OFF%20special."
-          >
-            📸 Text Pictures for a Quote + $25 OFF
-          </a>
+          <a class="btn-full" href="tel:+18179087241">Tap to Call Now</a>
         </div>
 
         <div class="contact-box">
@@ -1113,13 +692,10 @@
           <div class="contact-row">
             <div class="contact-label">What to include</div>
             <div>
-              A short description, photos if possible, and your city. Let us know you’re a first-time client
-              and we’ll include your <strong>$25 OFF</strong> in the quote.
+              A short description, photos if possible, and your city. We’ll reply with next steps and a rough estimate.
             </div>
           </div>
-          <a class="btn-full" href="mailto:info@dayproservice.com?subject=First-time%20garage%20cleanout%20quote%20($25%20OFF)">
-            ✉️ Email for an Estimate + $25 OFF
-          </a>
+          <a class="btn-full" href="mailto:info@dayproservice.com">Email for an Estimate</a>
         </div>
       </div>
     </div>
@@ -1152,7 +728,7 @@
      display: none;
    "
    class="mobile-call-btn">
-   Call Now — Ask About $25 OFF
+   Call Now — Free Estimate
 </a>
 
 <script>
@@ -1167,47 +743,6 @@
   }
   handleCallButton();
   window.addEventListener('resize', handleCallButton);
-</script>
-
-<!-- GOOGLE ADS CONVERSION EVENTS -->
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    // FORM SUBMIT -> Lead
-    var quoteForm = document.getElementById('quote-form');
-    if (quoteForm) {
-      quoteForm.addEventListener('submit', function () {
-        if (typeof gtag === 'function') {
-          gtag('event', 'conversion', {
-            'send_to': 'AW-XXXXXXX/FORM_LEAD_ID' // replace with your form conversion send_to
-          });
-        }
-      });
-    }
-
-    // CLICK-TO-TEXT -> Lead
-    var textButtons = document.querySelectorAll('a[href^="sms:+18179087241"]');
-    textButtons.forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        if (typeof gtag === 'function') {
-          gtag('event', 'conversion', {
-            'send_to': 'AW-XXXXXXX/SMS_LEAD_ID' // replace with your SMS conversion send_to
-          });
-        }
-      });
-    });
-
-    // CLICK-TO-EMAIL -> Lead
-    var emailButtons = document.querySelectorAll('a[href^="mailto:info@dayproservice.com"]');
-    emailButtons.forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        if (typeof gtag === 'function') {
-          gtag('event', 'conversion', {
-            'send_to': 'AW-XXXXXXX/EMAIL_LEAD_ID' // replace with your email conversion send_to
-          });
-        }
-      });
-    });
-  });
 </script>
 
 </body>
