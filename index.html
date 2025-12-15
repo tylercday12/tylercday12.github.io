@@ -440,36 +440,45 @@
       transform: translateY(-1px);
     }
 
-    /* Single gallery image */
-    .gallery-section {
-      background:#e5e7eb;
-    }
-    .gallery-wrapper {
-      margin-top: 18px;
-      background:#0b1120;
-      border-radius: var(--radius);
-      padding: 14px 14px 18px;
-      box-shadow:0 12px 30px rgba(15,23,42,0.35);
-      border:1px solid #1f2937;
-    }
-    .gallery-inner {
-      border-radius: var(--radius);
-      overflow:hidden;
-      background:#020617;
-    }
-    .gallery-inner img {
-      width:100%;
-      display:block;
-      max-height: 420px;
-      object-fit: cover;
-    }
-    .gallery-caption {
-      font-size: 13px;
-      color:#e5e7eb;
-      padding:8px 10px 4px;
-      background:#020617;
-      border-top:1px solid #111827;
-    }
+   <!-- SLIDING GALLERY (2 IMAGES) -->
+<section id="gallery" class="gallery-section">
+  <div class="container">
+    <div class="eyebrow">Results</div>
+    <h2 class="section-title">Real Jobs — Real Results</h2>
+    <p class="section-sub">
+      Swipe through a couple cleanouts we’ve done. Want a fast quote? Text pics and we’ll price it quick.
+    </p>
+
+    <div class="slider" aria-label="Job photos slider">
+      <button class="slider-btn prev" type="button" aria-label="Previous photo">‹</button>
+
+      <div class="slider-viewport">
+        <div class="slider-track">
+          <figure class="slide">
+            <img src="gallery-1.jpg" alt="Garage cleanout result photo 1" loading="lazy" />
+            <figcaption class="gallery-caption">
+              Cleanout result — floor space opened up and everything cleared out.
+            </figcaption>
+          </figure>
+
+          <figure class="slide">
+            <img src="gallery-2.jpg" alt="Garage cleanout result photo 2" loading="lazy" />
+            <figcaption class="gallery-caption">
+              Another cleanout — more room, less clutter, done fast.
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <button class="slider-btn next" type="button" aria-label="Next photo">›</button>
+
+      <div class="slider-dots" role="tablist" aria-label="Choose a photo">
+        <button class="dot active" type="button" aria-label="Go to photo 1"></button>
+        <button class="dot" type="button" aria-label="Go to photo 2"></button>
+      </div>
+    </div>
+  </div>
+</section>
 
     /* Footer */
     footer {
