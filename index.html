@@ -457,39 +457,55 @@
       </div>
     </section>
 
-    <!-- Gallery -->
-    <section id="gallery">
-      <div class="container">
-        <div class="eyebrow">Gallery</div>
-        <h2 class="section-title">These Are Real Jobs</h2>
-        <p class="section-sub">
-          A couple cleanouts we’ve actually done. (No stock photos.) Swipe through.
-        </p>
+   <!-- Gallery -->
+<section id="gallery">
+  <div class="container">
+    <div class="eyebrow">Gallery</div>
+    <h2 class="section-title">Recent Cleanouts — Real Results</h2>
+    <p class="section-sub">
+      A few photos from real cleanouts we’ve completed locally. No stock images — just real work.
+    </p>
 
-        <div class="gallery-wrap">
-          <div class="slider" aria-label="Job photos slider">
-            <button class="nav-btn prev" type="button" aria-label="Previous photo">‹</button>
-            <button class="nav-btn next" type="button" aria-label="Next photo">›</button>
+    <div class="gallery-wrap">
+      <div class="slider" aria-label="Job photos slider">
+        <button class="nav-btn prev" type="button" aria-label="Previous photo">‹</button>
+        <button class="nav-btn next" type="button" aria-label="Next photo">›</button>
 
-            <div class="track" id="track">
-              <div class="slide">
-                <img src="gallery-1.jpg" alt="Real garage cleanout job photo 1" loading="lazy" />
-                <div class="caption">Real cleanout — space cleared and usable again.</div>
-              </div>
-              <div class="slide">
-                <img src="gallery-2.jpg" alt="Real garage cleanout job photo 2" loading="lazy" />
-                <div class="caption">Another real job — less clutter, more room.</div>
-              </div>
-            </div>
+        <div class="track" id="track">
+          <div class="slide">
+            <img src="gallery-1.jpg" alt="Garage cleanout photo — real job 1" loading="lazy" class="gallery-img" />
+            <div class="caption">Real cleanout — space cleared and usable again.</div>
           </div>
 
-          <div class="dots" aria-label="Choose a photo">
-            <button class="dotbtn active" type="button" aria-label="Go to photo 1"></button>
-            <button class="dotbtn" type="button" aria-label="Go to photo 2"></button>
+          <div class="slide">
+            <img src="gallery-2.jpg" alt="Garage cleanout photo — real job 2" loading="lazy" class="gallery-img" />
+            <div class="caption">Real cleanout — less clutter, more room.</div>
           </div>
         </div>
       </div>
-    </section>
+
+      <div class="dots" aria-label="Choose a photo">
+        <button class="dotbtn active" type="button" aria-label="Go to photo 1"></button>
+        <button class="dotbtn" type="button" aria-label="Go to photo 2"></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+    /* Prevent photos from being cropped in the slider */
+.gallery-img{
+  width: 100%;
+  height: 260px;        /* desktop frame height */
+  display: block;
+  object-fit: contain;  /* ✅ shows the full photo (no cut-off) */
+  background: #020617;  /* fills any empty space cleanly */
+}
+
+@media (max-width: 860px){
+  .gallery-img{
+    height: 190px;      /* smaller on mobile */
+  }
+}
 
     <!-- Contact -->
     <section id="contact">
