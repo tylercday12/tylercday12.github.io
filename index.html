@@ -2,193 +2,263 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Dayproservices | Garage Cleanouts & Hauling in DFW</title>
+  <title>Dayproservices | Garage Cleanouts & Junk Removal in DFW</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Dayproservices offers fast, affordable garage cleanouts, junk removal, and hauling in Cleburne, Joshua, Burleson, and surrounding DFW." />
+  <meta name="description" content="Dayproservices offers fast, affordable garage cleanouts, junk removal, furniture removal, brush hauling, and hauling in Cleburne, Joshua, Burleson, and surrounding DFW. Text photos for a fast quote." />
+
   <style>
     :root {
       --primary: #111827;
-      --primary-light: #1f2937;
+      --primary-2: #0b1220;
       --accent: #f59e0b;
+      --accent-2: #fb923c;
       --bg: #f3f4f6;
       --text: #111827;
       --muted: #6b7280;
       --radius: 14px;
+      --card: #ffffff;
+      --border: #e5e7eb;
+      --shadow: 0 10px 28px rgba(15,23,42,0.10);
     }
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
     }
-    a {
-      text-decoration: none;
-      color: inherit;
+    a { text-decoration: none; color: inherit; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 14px; }
+
+    /* Top promo bar */
+    .promo-bar{
+      position: sticky;
+      top: 0;
+      z-index: 9998;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      color: #111827;
+      padding: 10px 14px;
+      font-weight: 800;
+      font-size: 13px;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.18);
+    }
+    .promo-bar .inner{
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .promo-pill{
+      background: rgba(17,24,39,0.92);
+      color: #fde68a;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+    .promo-cta{
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.92);
+      border: 1px solid rgba(17,24,39,0.12);
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-weight: 900;
+      font-size: 12px;
+      white-space: nowrap;
     }
 
     /* Header / Hero */
     header {
       position: relative;
       color: #fff;
-      padding: 24px 16px 60px;
+      padding: 22px 0 56px;
       background: url("garage-hero-new.png") no-repeat center center/cover;
+      overflow: hidden;
     }
-    /* Dark overlay */
     header::before {
       content: "";
       position: absolute;
       inset: 0;
-      background: rgba(0, 0, 0, 0.55);
+      background:
+        radial-gradient(circle at top left, rgba(245,158,11,0.20), transparent 55%),
+        rgba(0, 0, 0, 0.62);
       z-index: 0;
     }
-    header > .container {
-      position: relative;
-      z-index: 1;
-    }
+    header > .container { position: relative; z-index: 1; }
 
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 8px;
-    }
     .top-bar {
       display: flex;
       justify-content: space-between;
       align-items: center;
       gap: 16px;
-      margin-bottom: 32px;
+      margin-bottom: 22px;
     }
-    .logo {
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      font-size: 18px;
+    .logo img { height: 160px; width: auto; display: block; }
+
+    .top-right {
       display: flex;
-      align-items: center;
+      flex-direction: column;
+      gap: 8px;
+      align-items: flex-end;
     }
-    .top-contact {
-      text-align: right;
-      font-size: 14px;
+    .top-contact { text-align: right; font-size: 14px; color: #e5e7eb; }
+    .top-contact a { display: block; font-weight: 800; color: #fbbf24; }
+
+    .social-box{
+      display:flex; align-items:center; gap:10px;
+      font-size:14px; font-weight:700; color:#e5e7eb;
     }
-    .top-contact a {
-      display: block;
-      font-weight: 600;
-      color: #fbbf24;
+    .fb-link{
+      width: 30px; height: 30px; border-radius: 999px;
+      background: var(--accent);
+      display: grid; place-items: center;
+      color: #111827;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.30);
     }
+    .fb-link svg{ width: 14px; height: 14px; }
+
     .hero {
       display: grid;
       grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
-      gap: 32px;
+      gap: 26px;
       align-items: center;
-    }
-    .hero h1 {
-      font-size: clamp(28px, 4vw, 38px);
-      margin-bottom: 12px;
-    }
-    .hero p {
-      font-size: 16px;
-      color: #e5e7eb;
-      margin-bottom: 18px;
     }
     .hero-badge {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(148, 163, 184, 0.6);
+      gap: 8px;
+      background: rgba(15, 23, 42, 0.92);
+      border: 1px solid rgba(148, 163, 184, 0.55);
       border-radius: 999px;
-      padding: 4px 12px;
+      padding: 5px 12px;
       font-size: 13px;
       color: #e5e7eb;
       margin-bottom: 12px;
     }
-    .hero-badge span.dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: #22c55e;
+    .hero-badge .dot {
+      width: 8px; height: 8px; border-radius: 999px; background: #22c55e;
     }
+    .hero h1 {
+      font-size: clamp(30px, 4.2vw, 42px);
+      line-height: 1.15;
+      margin-bottom: 10px;
+    }
+    .hero h1 .hi { color: #fde68a; }
+    .hero p { font-size: 16px; color: #e5e7eb; margin-bottom: 14px; max-width: 620px; }
+
+    .hero-highlights{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 10px 0 14px;
+    }
+    .chip{
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(15,23,42,0.92);
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      color: #e5e7eb;
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+    .chip strong{ color: #fde68a; }
+
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
       margin-top: 8px;
+      align-items: center;
     }
     .btn-primary {
       background: var(--accent);
       color: #111827;
-      padding: 10px 18px;
+      padding: 11px 18px;
       border-radius: 999px;
-      font-weight: 700;
+      font-weight: 900;
       font-size: 15px;
       border: none;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 12px 26px rgba(0,0,0,0.35);
+      transition: transform 140ms ease, filter 140ms ease;
     }
-    .btn-primary:hover {
-      filter: brightness(1.05);
-    }
+    .btn-primary:hover { filter: brightness(1.05); transform: translateY(-1px); }
     .btn-ghost {
-      background: transparent;
+      background: rgba(2,6,23,0.18);
       border-radius: 999px;
       border: 1px solid rgba(209, 213, 219, 0.9);
       color: #e5e7eb;
-      padding: 9px 16px;
+      padding: 10px 16px;
       font-size: 14px;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
     }
     .hero-note {
-      margin-top: 10px;
+      margin-top: 12px;
       font-size: 13px;
       color: #d1d5db;
-      max-width: 420px;
+      max-width: 520px;
     }
+    .hero-note strong { color: #fde68a; }
+
     .hero-card {
       background: rgba(15, 23, 42, 0.95);
       border-radius: var(--radius);
       padding: 18px 18px 16px;
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      box-shadow: 0 20px 45px rgba(0,0,0,0.55);
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      box-shadow: 0 22px 46px rgba(0,0,0,0.55);
       font-size: 14px;
     }
-    .hero-card h2 {
-      font-size: 18px;
-      margin-bottom: 10px;
-    }
-    .hero-card ul {
-      list-style: none;
-      margin: 10px 0 12px;
-    }
+    .hero-card h2 { font-size: 18px; margin-bottom: 10px; }
+    .hero-card ul { list-style: none; margin: 10px 0 12px; padding: 0; }
     .hero-card li {
       display: flex;
       align-items: flex-start;
       gap: 8px;
-      margin-bottom: 6px;
+      margin-bottom: 7px;
       color: #e5e7eb;
     }
-    .check {
-      font-weight: 700;
-      color: #22c55e;
-      margin-top: 2px;
-    }
+    .check { font-weight: 900; color: #22c55e; margin-top: 2px; }
     .hero-card-footer {
       font-size: 12px;
       color: #9ca3af;
       border-top: 1px dashed rgba(148, 163, 184, 0.7);
-      padding-top: 6px;
-      margin-top: 6px;
+      padding-top: 8px;
+      margin-top: 8px;
     }
 
     /* Sections */
-    section {
-      padding: 38px 16px;
+    section { padding: 44px 0; }
+    .eyebrow {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      margin-bottom: 6px;
+      font-weight: 800;
     }
+    .section-title { font-size: 24px; margin-bottom: 8px; }
+    .section-sub { font-size: 14.5px; color: var(--muted); max-width: 760px; }
+
     .card-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -196,77 +266,172 @@
       margin-top: 16px;
     }
     .card {
-      background: #ffffff;
+      background: var(--card);
       border-radius: var(--radius);
       padding: 18px 16px 18px;
-      box-shadow: 0 8px 24px rgba(15,23,42,0.08);
-      border: 1px solid #e5e7eb;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
       font-size: 14px;
     }
-    .card h3 {
-      font-size: 17px;
-      margin-bottom: 6px;
-    }
-    .eyebrow {
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--muted);
-      margin-bottom: 4px;
-    }
-    .section-title {
-      font-size: 22px;
-      margin-bottom: 6px;
-    }
-    .section-sub {
-      font-size: 14px;
-      color: var(--muted);
-      max-width: 650px;
-    }
-    ul {
-      padding-left: 16px;
-    }
-    .pill-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 10px;
-    }
+    .card h3 { font-size: 17px; margin-bottom: 6px; }
+    .pill-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
     .pill {
       background: #e5e7eb;
       border-radius: 999px;
       padding: 4px 10px;
       font-size: 12px;
       color: #374151;
+      font-weight: 700;
     }
 
-    /* Pricing */
-    .price-tag {
-      font-size: 22px;
-      font-weight: 800;
-      margin-bottom: 2px;
+    /* Pricing emphasis */
+    #pricing { background: linear-gradient(180deg, #fff, #fff0); }
+    .pricing-header-row{
+      display:flex; gap:12px; flex-wrap:wrap; align-items:center; margin-top: 10px;
     }
-    .price-note {
-      font-size: 12px;
+    .guarantee {
+      display:inline-flex; align-items:center; gap:10px;
+      background:#fff;
+      padding:10px 14px;
+      border-radius:999px;
+      font-size:14px;
+      font-weight:900;
+      border:1px solid var(--border);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+      color:#111827;
+    }
+    .fast-quote-badge{
+      display:inline-flex; align-items:center; gap:10px;
+      background: rgba(245,158,11,0.14);
+      padding:10px 14px;
+      border-radius:999px;
+      font-size:14px;
+      font-weight:900;
+      border:1px solid rgba(245,158,11,0.35);
+      color:#111827;
+    }
+    .pricing-grid .card{ position: relative; overflow: hidden; }
+    .pricing-grid .card::before{
+      content:"";
+      position:absolute; inset:0;
+      background: radial-gradient(circle at top right, rgba(245,158,11,0.18), transparent 45%);
+      pointer-events:none;
+      opacity:0.9;
+    }
+    .price-tag {
+      font-size: 34px;
+      font-weight: 1000;
+      letter-spacing: -0.02em;
+      margin: 8px 0 2px;
+    }
+    .price-tag small{
+      font-size: 13px;
+      font-weight: 800;
       color: var(--muted);
     }
+    .price-note { font-size: 12px; color: var(--muted); margin-bottom: 10px; }
+    .price-includes{
+      margin-top: 10px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: #f9fafb;
+      font-size: 13px;
+      color: #111827;
+      font-weight: 700;
+    }
+    .price-includes span{ color: #065f46; font-weight: 900; }
+    .popular{
+      border: 2px solid rgba(245,158,11,0.65);
+      box-shadow: 0 18px 40px rgba(245,158,11,0.10), var(--shadow);
+      transform: translateY(-2px);
+    }
+    .popular-badge{
+      position:absolute;
+      top: 12px;
+      right: 12px;
+      background: var(--accent);
+      color: #111827;
+      font-weight: 1000;
+      font-size: 11px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      box-shadow: 0 10px 22px rgba(0,0,0,0.15);
+      z-index: 1;
+    }
 
-    /* Steps */
-    .steps {
-      list-style: none;
-      padding-left: 0;
-      counter-reset: step;
+    /* Gallery slider */
+    .gallery-wrap{
+      margin-top: 18px;
+      background: #020617;
+      border: 1px solid rgba(148,163,184,0.25);
+      border-radius: var(--radius);
+      padding: 14px;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.25);
+      max-width: 820px;
+      margin-left: auto;
+      margin-right: auto;
     }
-    .steps li {
-      counter-increment: step;
-      display: flex;
-      gap: 10px;
-      margin-bottom: 8px;
+    .slider{ position: relative; border-radius: var(--radius); overflow: hidden; background: #020617; }
+    .track{ display:flex; transition: transform 450ms ease; will-change: transform; }
+    .slide{ min-width: 100%; background:#020617; }
+    .gallery-img{
+      width: 100%;
+      height: 260px;
+      display: block;
+      object-fit: contain;  /* show full image (no cut-off) */
+      background: #020617;  /* letterbox area */
     }
+    .caption{
+      padding: 10px 12px;
+      color: #e5e7eb;
+      font-size: 13px;
+      border-top: 1px solid #111827;
+    }
+    .nav-btn{
+      position:absolute;
+      top:50%;
+      transform: translateY(-50%);
+      width: 38px;
+      height: 38px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.35);
+      background: rgba(2,6,23,0.65);
+      color: #e5e7eb;
+      display: grid;
+      place-items: center;
+      font-size: 22px;
+      cursor: pointer;
+      z-index: 2;
+      transition: background 140ms ease, transform 140ms ease;
+    }
+    .nav-btn:hover{ background: rgba(2,6,23,0.85); transform: translateY(-50%) scale(1.05); }
+    .nav-btn.prev{ left: 10px; }
+    .nav-btn.next{ right: 10px; }
+
+    .dots{
+      display:flex;
+      justify-content:center;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .dotbtn{
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      border: none;
+      background: rgba(229,231,235,0.35);
+      cursor: pointer;
+    }
+    .dotbtn.active{ background: rgba(245,158,11,0.95); }
+
+    /* How it works */
+    .steps { list-style: none; padding-left: 0; counter-reset: step; }
+    .steps li { counter-increment: step; display: flex; gap: 10px; margin-bottom: 10px; }
     .steps li::before {
       content: counter(step);
-      width: 20px;
-      height: 20px;
+      width: 22px;
+      height: 22px;
       border-radius: 999px;
       background: var(--primary);
       color: #fff;
@@ -275,9 +440,10 @@
       align-items: center;
       justify-content: center;
       margin-top: 2px;
+      font-weight: 900;
     }
 
-    /* Contact section */
+    /* Contact */
     .contact-grid {
       display: grid;
       grid-template-columns: minmax(0, 2fr) minmax(0, 2fr);
@@ -288,35 +454,33 @@
       background: #ffffff;
       border-radius: var(--radius);
       padding: 16px 16px 18px;
-      border: 1px solid #e5e7eb;
+      border: 1px solid var(--border);
       font-size: 14px;
-      box-shadow: 0 8px 24px rgba(15,23,42,0.08);
+      box-shadow: var(--shadow);
     }
-    .contact-row {
-      margin-bottom: 8px;
-    }
+    .contact-row { margin-bottom: 10px; }
     .contact-label {
       font-size: 12px;
       color: var(--muted);
       text-transform: uppercase;
       letter-spacing: 0.12em;
-      margin-bottom: 2px;
+      margin-bottom: 3px;
+      font-weight: 800;
     }
-    .big-contact {
-      font-size: 18px;
-      font-weight: 700;
-    }
+    .big-contact { font-size: 18px; font-weight: 900; }
     .btn-full {
       display: inline-block;
       margin-top: 10px;
-      padding: 10px 16px;
+      padding: 11px 16px;
       border-radius: 999px;
       background: var(--primary);
       color: #fff;
-      font-weight: 600;
+      font-weight: 800;
       font-size: 14px;
       text-align: center;
+      transition: transform 140ms ease, filter 140ms ease;
     }
+    .btn-full:hover { transform: translateY(-1px); filter: brightness(1.05); }
 
     /* Footer */
     footer {
@@ -327,68 +491,89 @@
       text-align: center;
     }
 
+    /* Sticky buttons */
+    .sticky-row{
+      position: fixed;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 14px;
+      z-index: 9999;
+      display: none;
+      gap: 10px;
+      padding: 10px;
+      border-radius: 999px;
+      background: rgba(2,6,23,0.78);
+      border: 1px solid rgba(148,163,184,0.25);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.30);
+    }
+    .sticky-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-weight: 900;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+    .sticky-btn.text{ background: var(--accent); color:#111827; }
+    .sticky-btn.call{ background: #111827; color:#fff; border:1px solid rgba(255,255,255,0.15); }
+
     /* Responsive */
-    @media (max-width: 800px) {
-      .top-bar {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .top-contact {
-        text-align: left;
-      }
-      header {
-        padding-bottom: 40px;
-      }
-      .hero {
-        grid-template-columns: 1fr;
-      }
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
+    @media (max-width: 860px) {
+      .top-bar { flex-direction: column; align-items: flex-start; }
+      .top-right { align-items: flex-start; }
+      .top-contact { text-align: left; }
+      header { padding-bottom: 34px; }
+      .hero { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .logo img { height: 140px; }
+      .btn-primary, .btn-ghost { width: 100%; }
+      .hero-actions { flex-direction: column; align-items: stretch; }
+      .gallery-img { height: 190px; }
+      .sticky-row{ display: flex; }
+      .promo-bar .promo-cta{ display:none; } /* keeps top bar clean on small screens */
     }
   </style>
 </head>
+
 <body>
+
+<!-- Promo: fast quote emphasis -->
+<div class="promo-bar">
+  <div class="inner">
+    <div>
+      ⚡ <strong>Fast Quotes</strong> — text photos and get a quick reply
+      <span class="promo-pill">Most quotes in under 15 min*</span>
+    </div>
+    <a class="promo-cta" href="#contact">📸 Send Pics for a Quote</a>
+  </div>
+</div>
 
 <header>
   <div class="container">
     <div class="top-bar">
       <div class="logo">
-        <img src="daypro-logo.png" alt="Day Pro Services Logo" style="height:180px; width:auto;">
+        <img src="daypro-logo.png" alt="Day Pro Services Logo" />
       </div>
 
-      <div style="display:flex; flex-direction:column; align-items:flex-end; gap:6px;">
+      <div class="top-right">
         <div class="top-contact">
           <span>Call or Email Anytime</span>
           <a href="tel:+18179087241">(817) 908-7241</a>
           <a href="mailto:info@dayproservice.com">info@dayproservice.com</a>
         </div>
 
-        <!-- Social media (Facebook placeholder) -->
-        <div class="social-box" style="
-          display:flex;
-          align-items:center;
-          gap:8px;
-          font-size:14px;
-          font-weight:600;
-          color:#e5e7eb;
-        ">
+        <div class="social-box">
           <span>Follow us:</span>
-          <!-- Facebook Icon (non-functional for now) -->
-          <div style="
-            width:28px;
-            height:28px;
-            border-radius:50%;
-            background:#f59e0b;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            font-size:16px;
-            color:#111827;
-            cursor:default;
-          ">
-            f
-          </div>
+          <a class="fb-link" href="https://www.facebook.com/profile.php?id=61584112049218" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M13.5 8.5H15.75V5.75H13.5C11.43 5.75 9.75 7.43 9.75 9.5V11.25H8.25V14H9.75V19.25H12.5V14H14.75L15.75 11.25H12.5V9.5C12.5 8.95 12.95 8.5 13.5 8.5Z"/>
+            </svg>
+          </a>
         </div>
       </div>
     </div>
@@ -399,55 +584,47 @@
           <span class="dot"></span>
           <span>Local cleanout & hauling • Cleburne • Joshua • Burleson • DFW</span>
         </div>
-        <h1>Garage Cleanouts, Junk Removal & Hauling — Done the Right Way.</h1>
+
+        <h1>
+          Garage Cleanouts & Junk Removal —
+          <span class="hi">Fast Quote When You Text Photos</span>
+        </h1>
+
         <p>
-          Day pro services helps you clear out garages, sheds, rooms, and whole properties —
-          fast, affordable, and local. You point, we clean, load, and haul it away.
+          We clear garages, sheds, rooms, and properties — fast, affordable, and local.
+          You point, we clean, load, and haul it away.
         </p>
-        <div class="hero-actions">
-          <a class="btn-primary" href="tel:+18179087241">
-            📞 Call Now to Schedule
-          </a>
-          <a class="btn-primary" href="#contact">
-            Get a Free Estimate
-          </a>
-          <a class="btn-primary" href="#pricing">
-            View Pricing
-          </a>
+
+        <div class="hero-highlights">
+          <div class="chip">📸 Fastest quote: <strong>text photos</strong></div>
+          <div class="chip">✅ Upfront pricing</div>
+          <div class="chip">🚚 Loading + hauling</div>
+          <div class="chip">🧹 Basic sweep-up included</div>
         </div>
+
+        <div class="hero-actions">
+          <a class="btn-primary" href="sms:+18179087241?&body=Hi%20Day%20Pro%20Services%2C%20I%E2%80%99d%20like%20a%20quote.%20I%E2%80%99m%20sending%20pictures%20now.">📸 Text Pics for a Quote</a>
+          <a class="btn-primary" href="#pricing">💰 View Pricing</a>
+          <a class="btn-ghost" href="#services">See Services</a>
+        </div>
+
         <div class="hero-note">
-          Serving Cleburne, Joshua, Burleson and surrounding DFW. No hidden fees, straight-up pricing.
+          <strong>*Most quotes in under 15 minutes during normal hours.</strong> If we’re on a job, we’ll reply ASAP.
         </div>
       </div>
 
       <div>
-        <div style="
-          display:flex;
-          align-items:center;
-          gap:8px;
-          background:#f59e0b;
-          padding:6px 14px;
-          border-radius:999px;
-          font-size:13px;
-          font-weight:700;
-          margin-bottom:12px;
-          color:#111827;
-          box-shadow:0 2px 6px rgba(0,0,0,0.2);
-        ">
-          <span style="font-size:16px;">🏠</span>
-          Locally Owned & Operated
-        </div>
-       
         <div class="hero-card">
-          <h2>What We Can Help With</h2>
+          <h2>What We Do (Year-Round)</h2>
           <ul>
             <li><span class="check">✔</span> Full garage cleanouts</li>
-            <li><span class="check">✔</span> Junk & clutter removal</li>
-            <li><span class="check">✔</span> Move-out and rental cleanups</li>
-            <li><span class="check">✔</span> Full-property & estate cleanouts</li>
+            <li><span class="check">✔</span> Furniture removal</li>
+            <li><span class="check">✔</span> Brush hauling & yard debris</li>
+            <li><span class="check">✔</span> Move-out & rental cleanups</li>
+            <li><span class="check">✔</span> Estate & full-property cleanouts</li>
           </ul>
           <div class="hero-card-footer">
-            Text a few photos of your garage or junk pile to <strong>(817) 908-7241</strong> for a quick ballpark estimate.
+            Text photos to <strong>(817) 908-7241</strong> for the fastest estimate.
           </div>
         </div>
       </div>
@@ -456,35 +633,30 @@
 </header>
 
 <main>
-  <!-- Services / What we do -->
+
+  <!-- Services -->
   <section id="services">
     <div class="container">
       <div class="eyebrow">Services</div>
-      <h2 class="section-title">Cleanouts & Hauling Made Simple</h2>
+      <h2 class="section-title">Cleanouts & Hauling — Any Season</h2>
       <p class="section-sub">
-        Whether it’s a packed garage, old furniture, boxes, or general junk that’s been sitting for years,
-        Day pro services makes it easy to get your space back.
+        From garage cleanouts to brush hauling, we handle the heavy lifting so you don’t have to.
+        Non-hazardous items only.
       </p>
 
       <div class="card-grid">
         <div class="card">
           <h3>Garage Cleanouts</h3>
-          <p>
-            We clear out your garage from wall to wall — old furniture, boxes, random clutter, you name it.
-            You tell us what stays and what goes.
-          </p>
+          <p>We clear it wall-to-wall. You decide what stays and what goes.</p>
           <div class="pill-list">
-            <span class="pill">Single & double garages</span>
+            <span class="pill">1-car & 2-car garages</span>
             <span class="pill">Sweep-up included</span>
           </div>
         </div>
 
         <div class="card">
           <h3>Junk & Clutter Removal</h3>
-          <p>
-            Old couches, mattresses, boxes, broken items, and more. We load it, haul it, and dispose of it
-            properly so you don’t have to mess with it.
-          </p>
+          <p>Old boxes, broken items, general clutter — we load it and haul it away.</p>
           <div class="pill-list">
             <span class="pill">Household junk</span>
             <span class="pill">Light debris</span>
@@ -492,14 +664,38 @@
         </div>
 
         <div class="card">
-          <h3>Small Hauling & Property Cleanups</h3>
-          <p>
-            Light hauling for non-hazardous items, small property cleanups, and basic make-ready cleanouts
-            for rentals and move-outs.
-          </p>
+          <h3>Furniture Removal</h3>
+          <p>Couches, mattresses, dressers, tables — we remove and haul (non-hazardous items).</p>
           <div class="pill-list">
-            <span class="pill">Rental & move-out</span>
-            <span class="pill">Basic property cleanup</span>
+            <span class="pill">Fast pickup</span>
+            <span class="pill">Proper disposal</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Brush Hauling & Yard Debris</h3>
+          <p>Storm cleanup, seasonal yard piles, brush and limbs — we haul it off.</p>
+          <div class="pill-list">
+            <span class="pill">Seasonal cleanup</span>
+            <span class="pill">Storm debris</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Move-Out & Rental Cleanups</h3>
+          <p>Make-ready cleanouts for rentals, move-outs, and property turnovers.</p>
+          <div class="pill-list">
+            <span class="pill">Rental turnover</span>
+            <span class="pill">Make-ready</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Shed / Room Cleanouts</h3>
+          <p>Sheds, spare rooms, storage areas — we clear it out and haul it away.</p>
+          <div class="pill-list">
+            <span class="pill">Sheds & storage</span>
+            <span class="pill">Rooms & closets</span>
           </div>
         </div>
       </div>
@@ -510,83 +706,94 @@
   <section id="pricing">
     <div class="container">
       <div class="eyebrow">Pricing</div>
-      <h2 class="section-title">Simple, Flat-Rate Garage Cleanout Pricing</h2>
-
-      <!-- Guarantee badge -->
-      <div style="
-        display:inline-flex;
-        align-items:center;
-        gap:10px;
-        background:#fff;
-        padding:8px 14px;
-        margin:8px 8px 10px 0;
-        border-radius:999px;
-        font-size:14px;
-        font-weight:700;
-        border:1px solid #e5e7eb;
-        box-shadow:0 4px 12px rgba(0,0,0,0.06);
-        color:#111827;
-      ">
-        <span style="font-size:16px;">✔</span>
-        100% Upfront Pricing — No Surprises
-      </div>
-
+      <h2 class="section-title">Flat-Rate Garage Cleanout Pricing</h2>
       <p class="section-sub">
-        Straight forward pricing with no hidden fees. Every cleanout includes loading, hauling, and a basic sweep-up.
-        Final price may vary slightly depending on dump fees or extremely heavy items. Largest load size limited to a 16' box truck.
+        Straightforward pricing, no games. Every cleanout includes loading, hauling, and a basic sweep-up.
+        Final price can vary slightly for dump fees or extremely heavy items.
       </p>
 
-      <p style="margin-top: 6px; font-size: 14px; font-weight: 600; color: #b45309;">
+      <div class="pricing-header-row">
+        <div class="guarantee">✔ 100% Upfront Pricing — No Surprises</div>
+        <div class="fast-quote-badge">⚡ Fast Quote: Text Photos to (817) 908-7241</div>
+      </div>
+
+      <p style="margin-top: 10px; font-size: 14px; font-weight: 800; color: #b45309;">
         🔥 Cash discounts available — ask when booking!
       </p>
 
-      <div class="card-grid">
+      <div class="card-grid pricing-grid" style="margin-top:18px;">
         <div class="card">
           <h3>Small Load</h3>
-          <div class="price-tag">
-            $300 <span style="font-size:14px; color:#6b7280;">est.</span>
+          <div class="price-tag">$300 <small>est.</small></div>
+          <div class="price-note">Lightly-filled 1-car garages or small spaces.</div>
+          <div class="price-includes"><span>Includes:</span> cleanout + loading + haul + sweep-up</div>
+          <div style="margin-top:12px;">
+            <a class="btn-full" href="#contact">Get This Price</a>
           </div>
-          <div class="price-note">Great for lightly-filled 1-car garages and small spaces.</div>
-          <ul>
-            <li>Full cleanout included</li>
-            <li>Loading + hauling</li>
-            <li>Basic sweep-up and basic organization</li>
-          </ul>
         </div>
 
-        <div class="card">
+        <div class="card popular">
+          <div class="popular-badge">MOST POPULAR</div>
           <h3>Medium Load</h3>
-          <div class="price-tag">
-            $350 <span style="font-size:14px; color:#6b7280;">est.</span>
+          <div class="price-tag">$350 <small>est.</small></div>
+          <div class="price-note">Standard 1-car garages or medium-filled spaces.</div>
+          <div class="price-includes"><span>Includes:</span> cleanout + loading + haul + sweep-up</div>
+          <div style="margin-top:12px;">
+            <a class="btn-full" href="#contact">Get This Price</a>
           </div>
-          <div class="price-note">Standard 1-car or medium-filled spaces.</div>
-          <ul>
-            <li>Full cleanout included</li>
-            <li>Loading + hauling</li>
-            <li>Basic sweep-up and basic organization</li>
-          </ul>
         </div>
 
         <div class="card">
           <h3>Large Load</h3>
-          <div class="price-tag">
-            $450 <span style="font-size:14px; color:#6b7280;">est.</span>
-          </div>
+          <div class="price-tag">$450 <small>est.</small></div>
           <div class="price-note">Most 2-car garages or heavily-filled spaces.</div>
-          <ul>
-            <li>Full cleanout included</li>
-            <li>Loading + hauling</li>
-            <li>Basic sweep-up and basic organization</li>
-          </ul>
+          <div class="price-includes"><span>Includes:</span> cleanout + loading + haul + sweep-up</div>
+          <div style="margin-top:12px;">
+            <a class="btn-full" href="#contact">Get This Price</a>
+          </div>
         </div>
 
         <div class="card">
           <h3>Custom Quotes</h3>
-          <p>
-            Have a unique situation? Extra junk? Not sure which size you fall under?
-            Text photos of your garage or junk pile and get a no-pressure estimate.
+          <p style="margin-top:6px;">
+            Not sure what size you are? Extra junk? Furniture pile? Brush hauling?
+            Text photos and we’ll send a quick ballpark estimate.
           </p>
-          <a href="sms:+18179087241" class="btn-full">Text Photos for Estimate</a>
+          <div style="margin-top:12px;">
+            <a href="sms:+18179087241?&body=Hi%20Day%20Pro%20Services%2C%20can%20you%20quote%20this%20job%3F%20I%27m%20sending%20photos%20now." class="btn-full">📸 Text Photos for Estimate</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section id="gallery">
+    <div class="container">
+      <div class="eyebrow">Gallery</div>
+      <h2 class="section-title">Recent Cleanouts — Real Results</h2>
+      <p class="section-sub">A couple real jobs we’ve completed. Swipe through the photos below.</p>
+
+      <div class="gallery-wrap">
+        <div class="slider" aria-label="Job photos slider">
+          <button class="nav-btn prev" type="button" aria-label="Previous photo">‹</button>
+          <button class="nav-btn next" type="button" aria-label="Next photo">›</button>
+
+          <div class="track" id="track">
+            <div class="slide">
+              <img class="gallery-img" src="gallery-1.jpg" alt="Garage cleanout job photo 1" loading="lazy" />
+              <div class="caption">Real job photo — garage cleared out and usable again.</div>
+            </div>
+            <div class="slide">
+              <img class="gallery-img" src="gallery-2.jpg" alt="Garage cleanout job photo 2" loading="lazy" />
+              <div class="caption">Real job photo — clutter removed, more room, done fast.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dots" aria-label="Choose a photo">
+          <button class="dotbtn active" type="button" aria-label="Go to photo 1"></button>
+          <button class="dotbtn" type="button" aria-label="Go to photo 2"></button>
         </div>
       </div>
     </div>
@@ -597,29 +804,13 @@
     <div class="container">
       <div class="eyebrow">How it works</div>
       <h2 class="section-title">Simple 3-Step Process</h2>
-      <p class="section-sub">
-        No complicated scheduling apps, no headaches. Just reach out, approve the price, and we handle the rest.
-      </p>
+      <p class="section-sub">No complicated scheduling. Reach out, approve the price, and we handle the rest.</p>
 
       <div class="card">
         <ul class="steps">
-          <li>
-            <div>
-              <strong>Reach out.</strong> Call or text <strong>(817) 908-7241</strong> with a short description or photos of the space.
-            </div>
-          </li>
-          <li>
-            <div>
-              <strong>Get a quote.</strong> We’ll give you a ballpark over text or come by for a quick look
-              and give a firm price before starting.
-            </div>
-          </li>
-          <li>
-            <div>
-              <strong>We clean & haul.</strong> You point at what needs to go. We load it, clean it out,
-              and haul it away. You get your space back.
-            </div>
-          </li>
+          <li><div><strong>Text photos or reach out.</strong> Send pics to <strong>(817) 908-7241</strong> for the fastest quote.</div></li>
+          <li><div><strong>Get a quote.</strong> We’ll send a ballpark quickly or come by for a quick look if needed.</div></li>
+          <li><div><strong>We clean & haul.</strong> You point, we load, sweep, and haul it away.</div></li>
         </ul>
       </div>
     </div>
@@ -631,14 +822,14 @@
       <div class="eyebrow">Service Area</div>
       <h2 class="section-title">Based in Cleburne, Serving DFW</h2>
       <p class="section-sub">
-        Dayproservices is locally based in Cleburne and serves nearby cities and the greater DFW area.
-        If you’re not sure you’re in range, just text and ask.
+        We’re locally based in Cleburne and serve nearby cities and the greater DFW area.
+        Not sure you’re in range? Text us your city and we’ll confirm.
       </p>
 
       <div class="card-grid">
         <div class="card">
           <h3>Primary Areas</h3>
-          <ul>
+          <ul style="padding-left:16px;">
             <li>Cleburne</li>
             <li>Joshua</li>
             <li>Burleson</li>
@@ -647,10 +838,7 @@
         </div>
         <div class="card">
           <h3>Extended DFW</h3>
-          <p>
-            We can travel to other parts of DFW for larger jobs or full property cleanouts.
-            Reach out with the address and details for a custom quote.
-          </p>
+          <p>We can travel for larger jobs or full property cleanouts. Text the address and photos for a custom quote.</p>
         </div>
       </div>
     </div>
@@ -660,89 +848,112 @@
   <section id="contact">
     <div class="container">
       <div class="eyebrow">Contact</div>
-      <h2 class="section-title">Ready to Clear Some Space?</h2>
+      <h2 class="section-title">Fast Quote = Text Photos</h2>
       <p class="section-sub">
-        Call or text to get started. You can also email with photos and a quick description of what you need cleaned out.
+        If you want the quickest estimate, text a couple photos. We’ll reply ASAP.
       </p>
 
       <div class="contact-grid">
         <div class="contact-box">
           <div class="contact-row">
             <div class="contact-label">Call or Text</div>
-            <div class="big-contact">
-              <a href="tel:+18179087241">(817) 908-7241</a>
-            </div>
+            <div class="big-contact"><a href="tel:+18179087241">(817) 908-7241</a></div>
           </div>
           <div class="contact-row">
             <div class="contact-label">Fastest way</div>
-            <div>
-              Text a few photos of your garage or junk pile for a quick estimate.
-            </div>
+            <div>Text a few photos of your garage / junk pile for a quick estimate.</div>
           </div>
-          <a class="btn-full" href="tel:+18179087241">Tap to Call Now</a>
+          <a class="btn-full" href="sms:+18179087241?&body=Hi%20Day%20Pro%20Services%2C%20I%E2%80%99d%20like%20a%20quote.%20I%E2%80%99m%20sending%20pictures%20now.">📸 Text Photos for a Quote</a>
+          <div style="margin-top:8px; font-size:12px; color: var(--muted);">
+            *Most quotes in under 15 minutes during normal hours.
+          </div>
         </div>
 
         <div class="contact-box">
           <div class="contact-row">
             <div class="contact-label">Email</div>
-            <div class="big-contact">
-              <a href="mailto:info@dayproservice.com">info@dayproservice.com</a>
-            </div>
+            <div class="big-contact"><a href="mailto:info@dayproservice.com">info@dayproservice.com</a></div>
           </div>
           <div class="contact-row">
             <div class="contact-label">What to include</div>
-            <div>
-              A short description, photos if possible, and your city. We’ll reply with next steps and a rough estimate.
-            </div>
+            <div>Short description, photos if possible, and your city. We’ll reply with next steps.</div>
           </div>
-          <a class="btn-full" href="mailto:info@dayproservice.com">Email for an Estimate</a>
+          <a class="btn-full" href="mailto:info@dayproservice.com?subject=Quote%20Request%20-%20Day%20Pro%20Services&body=Hi%2C%20I%E2%80%99d%20like%20a%20quote.%0A%0ACity%3A%20%0AService%20needed%3A%20%0ADetails%3A%20%0A%0AI%E2%80%99ll%20attach%20photos%20if%20available.">Email for an Estimate</a>
         </div>
       </div>
     </div>
   </section>
+
 </main>
 
 <footer>
   © <span id="year"></span> Dayproservices — Garage Cleanouts, Junk Removal & Hauling • Cleburne • Joshua • Burleson • DFW
 </footer>
 
+<!-- Sticky quick actions (mobile shows automatically via CSS) -->
+<div class="sticky-row" aria-label="Quick actions">
+  <a class="sticky-btn text" href="sms:+18179087241?&body=Hi%20Day%20Pro%20Services%2C%20I%E2%80%99d%20like%20a%20quote.%20I%E2%80%99m%20sending%20pictures%20now.">📸 Text Photos</a>
+  <a class="sticky-btn call" href="tel:+18179087241">📞 Call</a>
+</div>
+
 <script>
-  // Set current year in footer automatically
+  // Footer year
   document.getElementById("year").textContent = new Date().getFullYear();
-</script>
 
-<!-- Sticky Call Button (Mobile Only) -->
-<a href="tel:+18179087241" 
-   style="
-     position: fixed;
-     bottom: 16px;
-     right: 16px;
-     background: #f59e0b;
-     color: #111827;
-     padding: 12px 20px;
-     border-radius: 999px;
-     font-weight: 700;
-     font-size: 15px;
-     box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-     z-index: 9999;
-     display: none;
-   "
-   class="mobile-call-btn">
-   Call Now — Free Estimate
-</a>
+  // Gallery slider (2 images)
+  (function(){
+    const track = document.getElementById("track");
+    if(!track) return;
 
-<script>
-  // Show button only on mobile screens
-  function handleCallButton() {
-    const btn = document.querySelector('.mobile-call-btn');
-    if (window.innerWidth <= 760) {
-      btn.style.display = 'block';
-    } else {
-      btn.style.display = 'none';
+    const prev = document.querySelector(".nav-btn.prev");
+    const next = document.querySelector(".nav-btn.next");
+    const dots = Array.from(document.querySelectorAll(".dotbtn"));
+    const count = 2;
+    let index = 0;
+    let timer = null;
+
+    function update(){
+      track.style.transform = `translateX(-${index * 100}%)`;
+      dots.forEach((d,i)=>d.classList.toggle("active", i === index));
     }
-  }
-  handleCallButton();
-  window.addEventListener('resize', handleCallButton);
+    function go(i){
+      index = (i + count) % count;
+      update();
+    }
+    function start(){
+      stop();
+      timer = setInterval(()=>go(index + 1), 5200);
+    }
+    function stop(){
+      if(timer) clearInterval(timer);
+      timer = null;
+    }
+
+    prev.addEventListener("click", ()=>{ go(index - 1); start(); });
+    next.addEventListener("click", ()=>{ go(index + 1); start(); });
+    dots.forEach((d,i)=>d.addEventListener("click", ()=>{ go(i); start(); }));
+
+    // swipe support
+    const slider = document.querySelector(".slider");
+    let startX = 0;
+    slider.addEventListener("touchstart", (e)=>{ startX = e.touches[0].clientX; stop(); }, {passive:true});
+    slider.addEventListener("touchend", (e)=>{
+      const endX = e.changedTouches[0].clientX;
+      const diff = endX - startX;
+      if(Math.abs(diff) > 40){
+        if(diff > 0) go(index - 1);
+        else go(index + 1);
+      }
+      start();
+    }, {passive:true});
+
+    // pause hover on desktop
+    slider.addEventListener("mouseenter", stop);
+    slider.addEventListener("mouseleave", start);
+
+    update();
+    start();
+  })();
 </script>
 
 </body>
